@@ -30,7 +30,7 @@ export default function CatalogModal({ isOpen, onClose }) {
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMessage('');
 
@@ -46,9 +46,47 @@ export default function CatalogModal({ isOpen, onClose }) {
 
     setStatus('submitting');
 
-    setTimeout(() => {
-      setStatus('success');
-    }, 800);
+    const productLabels = {
+      dishwash: 'Dishwash Liquid',
+      handwash: 'Handwash',
+      bathroom: 'Bathroom Cleaner',
+      floor: 'Floor Cleaner',
+    };
+
+    const selectedProducts = Object.entries(formData.products)
+      .filter(([_, isSelected]) => isSelected)
+      .map(([key]) => productLabels[key] || key);
+
+    const productsString = selectedProducts.length > 0
+      ? selectedProducts.join(', ')
+      : 'All Products';
+
+    const sheetsUrl = import.meta.env.VITE_GOOGLE_SHEETS_URL || COMPANY_INFO.googleSheetsUrl;
+
+    if (sheetsUrl) {
+      try {
+        await fetch(sheetsUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'text/plain;charset=utf-8',
+          },
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            phone: formData.phone.trim(),
+            products: productsString,
+            submittedAt: new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }),
+          }),
+        });
+      } catch (err) {
+        console.error('Error submitting to Google Sheets:', err);
+      }
+    } else {
+      // Simulate brief delay if sheet URL is not configured yet
+      await new Promise((resolve) => setTimeout(resolve, 600));
+    }
+
+    setStatus('success');
   };
 
   const handleProductToggle = (key) => {

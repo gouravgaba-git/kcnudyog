@@ -94,5 +94,6 @@ export const COMPANY_INFO = {
   email: 'kcn.gocare@gmail.com',
   website: 'kcnudyog.com',
   address: '170 Sector-3, Vasundhara, Ghaziabad',
-  state: 'Uttar Pradesh (Delhi NCR), India'
+  state: 'Uttar Pradesh (Delhi NCR), India',
+  googleSheetsUrl: 'https://script.google.com/macros/s/AKfycbz70kXjNr4huyy3tahizeoAqsJ7wa1DZ-B_j1tGvRTzjmDM5pUUqy5KrJYiOrdUeVbM/exec',
 };
