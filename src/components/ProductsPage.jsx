@@ -109,204 +109,100 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
           </div>
         </div>
 
-        {/* Responsive Product Grid: 2-col on mobile, 3-col on tablet/desktop */}
-        <div className="product-grid">
-          {filteredProducts.map((prod) => {
-            const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
-              `Hello KCN Udyog, I would like to order / inquire about *${prod.name}*.`
-            )}`;
-
-            return (
+        {/* Responsive Product Grid: Clean Harpic-Style Cards */}
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 250px), 1fr))',
+            gap: 'clamp(20px, 2.5vw, 32px)',
+          }}
+        >
+          {filteredProducts.map((prod) => (
+            <div
+              key={prod.id}
+              onClick={() => onSelectProduct(prod)}
+              style={{
+                backgroundColor: '#FFFFFF',
+                borderRadius: '20px',
+                border: '1px solid #E2E8F0',
+                padding: 'clamp(28px, 3.5vw, 40px) 24px 28px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                cursor: 'pointer',
+                transition: 'all 0.28s cubic-bezier(0.16, 1, 0.3, 1)',
+                boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+                minHeight: '370px',
+                position: 'relative',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'translateY(-8px)';
+                e.currentTarget.style.borderColor = '#168DC0';
+                e.currentTarget.style.boxShadow =
+                  '0 20px 36px -8px rgba(22, 141, 192, 0.16), 0 0 0 1px rgba(22, 141, 192, 0.25)';
+                const img = e.currentTarget.querySelector('img');
+                if (img) img.style.transform = 'scale(1.05)';
+                const title = e.currentTarget.querySelector('h3');
+                if (title) title.style.color = '#168DC0';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.borderColor = '#E2E8F0';
+                e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
+                const img = e.currentTarget.querySelector('img');
+                if (img) img.style.transform = 'scale(1)';
+                const title = e.currentTarget.querySelector('h3');
+                if (title) title.style.color = '#2B176F';
+              }}
+            >
+              {/* Product Bottle Image Area */}
               <div
-                key={prod.id}
-                className="product-card"
                 style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
-                  border: '1px solid #E2E8F0',
-                  overflow: 'hidden',
+                  flexGrow: 1,
+                  width: '100%',
                   display: 'flex',
-                  flexDirection: 'column',
-                  transition: 'all 0.25s ease',
-                  boxShadow: '0 2px 8px rgba(15, 23, 42, 0.04)',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '8px 0 20px',
                 }}
               >
-                {/* Image Wrap */}
-                <div
-                  className="product-card-image-wrap"
+                <img
+                  src={prod.image}
+                  alt={prod.name}
                   style={{
-                    backgroundColor: '#F8FAFC',
-                    padding: '20px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    height: '220px',
-                    position: 'relative',
-                    cursor: 'pointer',
-                    borderBottom: '1px solid #F1F5F9',
+                    maxHeight: '230px',
+                    maxWidth: '100%',
+                    objectFit: 'contain',
+                    filter: 'drop-shadow(0 14px 20px rgba(15, 23, 42, 0.12))',
+                    transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                   }}
-                  onClick={() => onSelectProduct(prod)}
-                >
-                  <span
-                    style={{
-                      position: 'absolute',
-                      top: '10px',
-                      left: '10px',
-                      fontSize: '0.68rem',
-                      fontWeight: 700,
-                      color: '#168DC0',
-                      backgroundColor: '#FFFFFF',
-                      padding: '3px 8px',
-                      borderRadius: '9999px',
-                      border: '1px solid #E2E8F0',
-                    }}
-                  >
-                    {prod.categoryLabel.split(' ')[0]}
-                  </span>
-
-                  <img
-                    src={prod.image}
-                    alt={prod.name}
-                    style={{
-                      maxHeight: '180px',
-                      maxWidth: '100%',
-                      objectFit: 'contain',
-                      filter: 'drop-shadow(0 8px 12px rgba(0,0,0,0.08))',
-                    }}
-                  />
-                </div>
-
-                {/* Card Info */}
-                <div
-                  style={{
-                    padding: '16px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    flexGrow: 1,
-                  }}
-                >
-                  <div
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    <span style={{ fontSize: '0.72rem', fontWeight: 800, color: '#2B176F' }}>
-                      CLEAN GO
-                    </span>
-                    {prod.scent && (
-                      <span
-                        style={{
-                          fontSize: '0.7rem',
-                          color: '#64748B',
-                          backgroundColor: '#F1F5F9',
-                          padding: '2px 6px',
-                          borderRadius: '4px',
-                          whiteSpace: 'nowrap',
-                          overflow: 'hidden',
-                          textOverflow: 'ellipsis',
-                          maxWidth: '120px',
-                        }}
-                      >
-                        {prod.scent}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Title */}
-                  <h3
-                    onClick={() => onSelectProduct(prod)}
-                    style={{
-                      fontSize: '1.05rem',
-                      fontWeight: 800,
-                      color: '#2B176F',
-                      lineHeight: 1.25,
-                      marginBottom: '6px',
-                      cursor: 'pointer',
-                    }}
-                  >
-                    {prod.name}
-                  </h3>
-
-                  {/* Short description */}
-                  <p
-                    style={{
-                      fontSize: '0.82rem',
-                      color: '#475569',
-                      lineHeight: 1.45,
-                      marginBottom: '12px',
-                      flexGrow: 1,
-                      display: '-webkit-box',
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    {prod.shortDesc}
-                  </p>
-
-                  {/* Available Sizes Tag */}
-                  <div
-                    style={{
-                      fontSize: '0.74rem',
-                      color: '#168DC0',
-                      fontWeight: 600,
-                      marginBottom: '14px',
-                      backgroundColor: '#F0F9FF',
-                      padding: '4px 8px',
-                      borderRadius: '6px',
-                    }}
-                  >
-                    📦 {prod.volume || '5L Commercial & Retail'}
-                  </div>
-
-                  {/* Actions */}
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: '1fr auto',
-                      gap: '8px',
-                      marginTop: 'auto',
-                    }}
-                  >
-                    <button
-                      onClick={() => onSelectProduct(prod)}
-                      className="btn btn-outline"
-                      style={{
-                        padding: '8px 10px',
-                        fontSize: '0.82rem',
-                        fontWeight: 700,
-                        borderColor: '#CBD5E1',
-                        color: '#168DC0',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <span>View Details</span>
-                      <ArrowRight size={14} />
-                    </button>
-
-                    <a
-                      href={whatsappUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-whatsapp"
-                      title="Enquire on WhatsApp"
-                      style={{
-                        padding: '8px 10px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                      }}
-                    >
-                      <MessageCircle size={15} />
-                    </a>
-                  </div>
-                </div>
+                />
               </div>
-            );
-          })}
+
+              {/* Clean Centered Title Below Bottle */}
+              <div
+                style={{
+                  width: '100%',
+                  textAlign: 'center',
+                  paddingTop: '12px',
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: '1.15rem',
+                    fontWeight: 800,
+                    color: '#2B176F',
+                    lineHeight: 1.3,
+                    margin: 0,
+                    transition: 'color 0.2s ease',
+                  }}
+                >
+                  {prod.name}
+                </h3>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>

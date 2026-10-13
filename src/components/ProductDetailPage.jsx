@@ -854,8 +854,8 @@ export default function ProductDetailPage({
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-              gap: '20px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 250px), 1fr))',
+              gap: 'clamp(18px, 2.5vw, 28px)',
             }}
           >
             {relatedProducts.map((relProd) => (
@@ -864,114 +864,82 @@ export default function ProductDetailPage({
                 onClick={() => onSelectProduct(relProd)}
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '18px',
+                  borderRadius: '20px',
                   border: '1px solid #E2E8F0',
-                  padding: '20px',
+                  padding: 'clamp(28px, 3.5vw, 36px) 20px 24px',
                   display: 'flex',
                   flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'space-between',
                   cursor: 'pointer',
-                  transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                  transition: 'all 0.28s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 4px 16px rgba(15, 23, 42, 0.04)',
+                  minHeight: '340px',
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = 'translateY(-6px)';
+                  e.currentTarget.style.transform = 'translateY(-8px)';
                   e.currentTarget.style.borderColor = '#168DC0';
-                  e.currentTarget.style.boxShadow = '0 12px 24px -4px rgba(22, 141, 192, 0.16)';
+                  e.currentTarget.style.boxShadow =
+                    '0 20px 36px -8px rgba(22, 141, 192, 0.16), 0 0 0 1px rgba(22, 141, 192, 0.25)';
+                  const img = e.currentTarget.querySelector('img');
+                  if (img) img.style.transform = 'scale(1.05)';
+                  const title = e.currentTarget.querySelector('h3');
+                  if (title) title.style.color = '#168DC0';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.03)';
+                  e.currentTarget.style.boxShadow = '0 4px 16px rgba(15, 23, 42, 0.04)';
+                  const img = e.currentTarget.querySelector('img');
+                  if (img) img.style.transform = 'scale(1)';
+                  const title = e.currentTarget.querySelector('h3');
+                  if (title) title.style.color = '#2B176F';
                 }}
               >
+                {/* Product Bottle Image Area */}
                 <div
                   style={{
-                    backgroundColor: '#F8FAFC',
-                    borderRadius: '12px',
-                    padding: '16px',
-                    height: '180px',
+                    flexGrow: 1,
+                    width: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '14px',
+                    padding: '6px 0 16px',
                   }}
                 >
                   <img
                     src={relProd.image}
                     alt={relProd.name}
                     style={{
-                      maxHeight: '150px',
+                      maxHeight: '210px',
                       maxWidth: '100%',
                       objectFit: 'contain',
-                      filter: 'drop-shadow(0 8px 12px rgba(0,0,0,0.1))',
+                      filter: 'drop-shadow(0 12px 18px rgba(15, 23, 42, 0.12))',
+                      transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                     }}
                   />
                 </div>
 
+                {/* Clean Centered Title Below Bottle */}
                 <div
                   style={{
-                    fontSize: '0.72rem',
-                    fontWeight: 700,
-                    color: '#168DC0',
-                    textTransform: 'uppercase',
-                    marginBottom: '4px',
-                  }}
-                >
-                  {relProd.categoryLabel}
-                </div>
-
-                <h3
-                  style={{
-                    fontSize: '1rem',
-                    fontWeight: 800,
-                    color: '#2B176F',
-                    marginBottom: '6px',
-                  }}
-                >
-                  {relProd.name}
-                </h3>
-
-                <p
-                  style={{
-                    fontSize: '0.8rem',
-                    color: '#64748B',
-                    lineHeight: 1.4,
-                    marginBottom: '14px',
-                    flexGrow: 1,
-                    display: '-webkit-box',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden',
-                  }}
-                >
-                  {relProd.shortDesc}
-                </p>
-
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    marginTop: 'auto',
+                    width: '100%',
+                    textAlign: 'center',
                     paddingTop: '10px',
-                    borderTop: '1px solid #F1F5F9',
                   }}
                 >
-                  <span
+                  <h3
                     style={{
-                      fontSize: '0.75rem',
-                      color: '#168DC0',
-                      fontWeight: 700,
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '4px',
+                      fontSize: '1.05rem',
+                      fontWeight: 800,
+                      color: '#2B176F',
+                      lineHeight: 1.3,
+                      margin: 0,
+                      transition: 'color 0.2s ease',
                     }}
                   >
-                    View Product Page <ChevronRight size={14} />
-                  </span>
-                  <span style={{ fontSize: '0.72rem', color: '#94A3B8', fontWeight: 600 }}>
-                    {relProd.volume || '5L Can'}
-                  </span>
+                    {relProd.name}
+                  </h3>
                 </div>
               </div>
             ))}

@@ -239,12 +239,12 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
             </p>
           </div>
 
-          {/* 6 Real Bottles Showcase Grid */}
+          {/* 6 Real Bottles Showcase Grid - Clean Harpic-Style Showcase */}
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 150px), 1fr))',
-              gap: '14px',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 160px), 1fr))',
+              gap: '16px',
             }}
           >
             {PRODUCTS.map((prod) => (
@@ -253,115 +253,76 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                 onClick={() => onSelectProduct(prod)}
                 style={{
                   backgroundColor: '#FFFFFF',
-                  borderRadius: '16px',
-                  padding: '14px 10px',
+                  borderRadius: '18px',
+                  padding: '24px 14px 18px',
                   border: '1px solid #E2E8F0',
                   display: 'flex',
                   flexDirection: 'column',
                   alignItems: 'center',
+                  justifyContent: 'space-between',
                   cursor: 'pointer',
-                  transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                  position: 'relative',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.03)',
+                  transition: 'all 0.28s cubic-bezier(0.16, 1, 0.3, 1)',
+                  boxShadow: '0 4px 12px rgba(15, 23, 42, 0.03)',
+                  minHeight: '260px',
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-6px)';
                   e.currentTarget.style.borderColor = '#168DC0';
-                  e.currentTarget.style.boxShadow = '0 12px 24px -6px rgba(22, 141, 192, 0.18)';
+                  e.currentTarget.style.boxShadow =
+                    '0 16px 28px -6px rgba(22, 141, 192, 0.16), 0 0 0 1px rgba(22, 141, 192, 0.2)';
+                  const img = e.currentTarget.querySelector('img');
+                  if (img) img.style.transform = 'scale(1.05)';
+                  const title = e.currentTarget.querySelector('h3');
+                  if (title) title.style.color = '#168DC0';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
                   e.currentTarget.style.borderColor = '#E2E8F0';
-                  e.currentTarget.style.boxShadow = '0 2px 6px rgba(0,0,0,0.03)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(15, 23, 42, 0.03)';
+                  const img = e.currentTarget.querySelector('img');
+                  if (img) img.style.transform = 'scale(1)';
+                  const title = e.currentTarget.querySelector('h3');
+                  if (title) title.style.color = '#2B176F';
                 }}
               >
-                {/* Category Pill */}
-                <span
-                  style={{
-                    fontSize: '0.68rem',
-                    fontWeight: 700,
-                    color: '#168DC0',
-                    backgroundColor: '#F0F9FF',
-                    padding: '2px 8px',
-                    borderRadius: '9999px',
-                    marginBottom: '8px',
-                    whiteSpace: 'nowrap',
-                  }}
-                >
-                  {prod.categoryLabel.split(' ')[0]}
-                </span>
-
                 {/* Bottle Image Container */}
                 <div
                   style={{
-                    height: '160px',
+                    height: '170px',
                     width: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '10px',
-                    position: 'relative',
+                    padding: '6px 0 12px',
                   }}
                 >
                   <img
                     src={prod.image}
                     alt={prod.name}
                     style={{
-                      maxHeight: '150px',
+                      maxHeight: '160px',
                       maxWidth: '100%',
                       objectFit: 'contain',
-                      filter: 'drop-shadow(0 8px 12px rgba(0,0,0,0.08))',
+                      filter: 'drop-shadow(0 10px 14px rgba(15, 23, 42, 0.1))',
+                      transition: 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
                     }}
                   />
                 </div>
 
                 {/* Name */}
-                <div
+                <h3
                   style={{
-                    fontSize: '0.84rem',
+                    fontSize: '0.92rem',
                     fontWeight: 800,
                     color: '#2B176F',
                     textAlign: 'center',
                     lineHeight: 1.25,
-                    marginBottom: '4px',
-                    height: '34px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    margin: 0,
+                    transition: 'color 0.2s ease',
                   }}
                 >
-                  {prod.name.replace('Clean Go ', '')}
-                </div>
-
-                {/* Scent / Volume tag */}
-                <div
-                  style={{
-                    fontSize: '0.72rem',
-                    color: '#64748B',
-                    textAlign: 'center',
-                    whiteSpace: 'nowrap',
-                    overflow: 'hidden',
-                    textOverflow: 'ellipsis',
-                    width: '100%',
-                  }}
-                >
-                  {prod.scent || prod.volume}
-                </div>
-
-                {/* Quick Action Link */}
-                <span
-                  style={{
-                    marginTop: '8px',
-                    fontSize: '0.74rem',
-                    fontWeight: 700,
-                    color: '#168DC0',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '2px',
-                  }}
-                >
-                  View Specs →
-                </span>
+                  {prod.name}
+                </h3>
               </div>
             ))}
           </div>
