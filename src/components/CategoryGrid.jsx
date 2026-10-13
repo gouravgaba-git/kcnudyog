@@ -16,26 +16,6 @@ export default function CategoryGrid({ onSelectProduct, onNavigateToProducts }) 
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 12px',
-              borderRadius: '9999px',
-              backgroundColor: '#E0F2FE',
-              color: '#0284C7',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              marginBottom: '12px',
-            }}
-          >
-            <Sparkles size={13} />
-            <span>Targeted Cleaning Categories</span>
-          </div>
-
           <h2
             style={{
               fontSize: 'clamp(1.85rem, 3.8vw, 2.75rem)',

@@ -53,27 +53,6 @@ export default function DistributorCTA({ onOpenCatalogModal, onNavigateToContact
           >
             {/* Left Content */}
             <div>
-              <div
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  padding: '5px 12px',
-                  borderRadius: '9999px',
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid #CBD5E1',
-                  color: '#2B176F',
-                  fontSize: '0.78rem',
-                  fontWeight: 700,
-                  textTransform: 'uppercase',
-                  letterSpacing: '0.04em',
-                  marginBottom: '16px',
-                }}
-              >
-                <Handshake size={14} color="#168DC0" />
-                <span>Distributor & Retail Partnership</span>
-              </div>
-
               <h2
                 style={{
                   fontSize: 'clamp(1.75rem, 3.4vw, 2.5rem)',

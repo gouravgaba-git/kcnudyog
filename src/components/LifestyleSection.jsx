@@ -35,26 +35,6 @@ export default function LifestyleSection({ onSelectProduct }) {
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '740px', margin: '0 auto 48px' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 12px',
-              borderRadius: '9999px',
-              backgroundColor: '#EEF2FF',
-              color: '#2B176F',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.05em',
-              marginBottom: '12px',
-            }}
-          >
-            <Sparkles size={13} color="#2B176F" />
-            <span>Targeted Room Hygiene</span>
-          </div>
-
           <h2
             style={{
               fontSize: 'clamp(1.85rem, 3.8vw, 2.75rem)',

@@ -47,37 +47,6 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
       <div className="container" style={{ position: 'relative', zIndex: 2 }}>
         {/* Top Hero Text */}
         <div style={{ maxWidth: '820px', margin: '0 auto', textAlign: 'center' }}>
-          {/* Eyebrow Pill */}
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '8px',
-              padding: '6px 14px',
-              borderRadius: '9999px',
-              backgroundColor: '#EEF2FF',
-              border: '1px solid #E0E7FF',
-              marginBottom: '18px',
-            }}
-          >
-            <Sparkles size={14} color="#2B176F" />
-            <span
-              style={{
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                color: '#2B176F',
-                letterSpacing: '0.02em',
-                textTransform: 'uppercase',
-              }}
-            >
-              CLEAN GO BY KCN UDYOG
-            </span>
-            <span style={{ color: '#94A3B8', fontSize: '0.8rem' }}>•</span>
-            <span style={{ fontSize: '0.82rem', color: '#168DC0', fontWeight: 600 }}>
-              Direct Factory Quality
-            </span>
-          </div>
-
           {/* Main Headline */}
           <h1
             style={{

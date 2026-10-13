@@ -19,26 +19,6 @@ export default function HomeExploreHub({ onNavigate, onOpenCatalogModal }) {
       <div className="container">
         {/* Section Header */}
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 44px' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 12px',
-              borderRadius: '9999px',
-              backgroundColor: '#EEF2FF',
-              color: '#2B176F',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em',
-              marginBottom: '12px',
-            }}
-          >
-            <Sparkles size={13} color="#2B176F" />
-            <span>Discover More About Clean Go</span>
-          </div>
-
           <h2
             style={{
               fontSize: 'clamp(1.8rem, 3.5vw, 2.5rem)',

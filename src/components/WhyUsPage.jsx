@@ -34,26 +34,6 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
         }}
       >
         <div className="container" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}>
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              padding: '4px 12px',
-              borderRadius: '9999px',
-              backgroundColor: '#EEF2FF',
-              color: '#2B176F',
-              fontSize: '0.8rem',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.04em',
-              marginBottom: '12px',
-            }}
-          >
-            <ShieldCheck size={14} color="#2B176F" />
-            <span>Verified Manufacturing Standards</span>
-          </div>
-
           <h1
             style={{
               fontSize: 'clamp(2rem, 4.2vw, 3rem)',
