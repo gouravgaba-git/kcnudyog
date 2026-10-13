@@ -8,7 +8,6 @@ import CatalogModal from './components/CatalogModal';
 import HomeHero from './components/HomeHero';
 import ProductsPage from './components/ProductsPage';
 import ProductDetailPage from './components/ProductDetailPage';
-import SolutionsPage from './components/SolutionsPage';
 import WhyUsPage from './components/WhyUsPage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
@@ -16,7 +15,7 @@ import ContactPage from './components/ContactPage';
 import { PRODUCTS } from './data/productsData';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home'); // home | products | product-detail | solutions | why-us | about | contact
+  const [currentPage, setCurrentPage] = useState('home'); // home | products | product-detail | why-us | about | contact
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCatalogModalOpen, setIsCatalogModalOpen] = useState(false);
 
@@ -48,7 +47,9 @@ export default function App() {
         setCurrentPage('products');
       }
     } else if (path === 'solutions') {
-      setCurrentPage('solutions');
+      // Solutions removed: redirect to products
+      setCurrentPage('products');
+      window.location.hash = '#/products';
     } else if (path === 'why-us') {
       setCurrentPage('why-us');
     } else if (path === 'about') {
@@ -129,14 +130,6 @@ export default function App() {
             onNavigate={navigate}
             onSelectProduct={handleSelectProduct}
             onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-          />
-        )}
-
-        {currentPage === 'solutions' && (
-          <SolutionsPage
-            onSelectProduct={handleSelectProduct}
-            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-            onNavigateToContact={() => navigate('contact')}
           />
         )}
 

@@ -12,7 +12,6 @@ export default function Header({
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'products', label: 'Our Products' },
-    { id: 'solutions', label: 'Solutions' },
     { id: 'why-us', label: 'Why Us' },
     { id: 'about', label: 'About Us' },
     { id: 'contact', label: 'Contact' },
