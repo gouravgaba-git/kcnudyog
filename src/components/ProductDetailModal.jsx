@@ -174,29 +174,6 @@ export default function ProductDetailModal({ product, isOpen, onClose }) {
                 minHeight: '340px',
               }}
             >
-              {/* Product Badge */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '12px',
-                  left: '12px',
-                  background: '#FFFFFF',
-                  padding: '4px 10px',
-                  borderRadius: '9999px',
-                  fontSize: '0.72rem',
-                  fontWeight: 700,
-                  color: '#2B176F',
-                  boxShadow: '0 2px 6px rgba(0,0,0,0.06)',
-                  border: '1px solid #E2E8F0',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '4px',
-                }}
-              >
-                <Sparkles size={12} color="#168DC0" />
-                <span>CLEAN GO</span>
-              </div>
-
               {/* Real Photo */}
               <img
                 src={product.image}

@@ -135,49 +135,26 @@ export default function SolutionsPage({ onSelectProduct, onOpenCatalogModal, onN
                 }}
               >
                 {/* Visual Product Stage */}
+                {/* Image Wrap - Pure Clean Presentation with Zero Text Overlap */}
                 <div
                   style={{
                     backgroundColor: '#F8FAFC',
                     padding: '24px 20px',
-                    height: '210px',
+                    height: '220px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    position: 'relative',
                     borderBottom: '1px solid #E2E8F0',
                     cursor: 'pointer',
                   }}
                   onClick={() => onSelectProduct(product)}
                 >
-                  {/* Room Tag */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '12px',
-                      left: '12px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      backgroundColor: '#FFFFFF',
-                      padding: '4px 10px',
-                      borderRadius: '9999px',
-                      border: '1px solid #E2E8F0',
-                      fontSize: '0.74rem',
-                      fontWeight: 700,
-                      color: '#0F172A',
-                      boxShadow: '0 2px 4px rgba(0,0,0,0.03)',
-                    }}
-                  >
-                    {getIconForRoom(sol.id)}
-                    <span>{sol.room}</span>
-                  </div>
-
                   {/* Bottle Image */}
                   <img
                     src={product.image}
                     alt={product.name}
                     style={{
-                      maxHeight: '170px',
+                      maxHeight: '180px',
                       maxWidth: '100%',
                       objectFit: 'contain',
                       filter: 'drop-shadow(0 10px 14px rgba(0,0,0,0.08))',
@@ -186,23 +163,6 @@ export default function SolutionsPage({ onSelectProduct, onOpenCatalogModal, onN
                     onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
                     onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                   />
-
-                  {/* Highlight Badge */}
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: '10px',
-                      right: '12px',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      backgroundColor: sol.accentColor,
-                      color: sol.id === 'kitchen' ? '#000000' : '#FFFFFF',
-                      padding: '3px 8px',
-                      borderRadius: '6px',
-                    }}
-                  >
-                    {sol.highlightBadge}
-                  </span>
                 </div>
 
                 {/* Content */}
@@ -214,6 +174,30 @@ export default function SolutionsPage({ onSelectProduct, onOpenCatalogModal, onN
                     flexGrow: 1,
                   }}
                 >
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      marginBottom: '10px',
+                    }}
+                  >
+                    <span style={{ fontSize: '0.78rem', fontWeight: 700, color: '#168DC0' }}>
+                      {sol.room}
+                    </span>
+                    <span
+                      style={{
+                        fontSize: '0.72rem',
+                        fontWeight: 700,
+                        backgroundColor: sol.accentColor,
+                        color: sol.id === 'kitchen' ? '#000000' : '#FFFFFF',
+                        padding: '3px 8px',
+                        borderRadius: '6px',
+                      }}
+                    >
+                      {sol.highlightBadge}
+                    </span>
+                  </div>
                   <h2
                     style={{
                       fontSize: '1.15rem',

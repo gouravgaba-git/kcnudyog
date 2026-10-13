@@ -94,24 +94,6 @@ export default function CategoryGrid({ onSelectProduct, onNavigateToProducts }) 
                   }}
                   onClick={() => onSelectProduct(prod)}
                 >
-                  <span
-                    style={{
-                      position: 'absolute',
-                      top: '12px',
-                      left: '12px',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      color: '#168DC0',
-                      backgroundColor: '#FFFFFF',
-                      padding: '4px 10px',
-                      borderRadius: '9999px',
-                      border: '1px solid #E2E8F0',
-                      boxShadow: '0 2px 4px rgba(0,0,0,0.03)',
-                    }}
-                  >
-                    {prod.categoryLabel}
-                  </span>
-
                   <img
                     src={prod.image}
                     alt={prod.name}

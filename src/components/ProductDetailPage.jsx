@@ -172,59 +172,15 @@ export default function ProductDetailPage({
                 backgroundColor: '#F8FAFC',
                 borderRadius: '20px',
                 border: '1px solid #E2E8F0',
-                padding: 'clamp(24px, 4vw, 40px)',
+                padding: 'clamp(28px, 4vw, 44px)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                position: 'relative',
-                minHeight: '420px',
+                minHeight: '440px',
                 background: 'radial-gradient(circle at center, #FFFFFF 0%, #F1F5F9 100%)',
               }}
             >
-              {/* Brand Floating Pill */}
-              <div
-                style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '16px',
-                  backgroundColor: '#FFFFFF',
-                  padding: '6px 14px',
-                  borderRadius: '9999px',
-                  fontSize: '0.75rem',
-                  fontWeight: 800,
-                  color: '#2B176F',
-                  border: '1px solid #E2E8F0',
-                  boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                }}
-              >
-                <Sparkles size={14} color="#168DC0" />
-                <span>CLEAN GO ORIGINAL</span>
-              </div>
-
-              {/* Scent Badge */}
-              {activeProduct.scent && (
-                <div
-                  style={{
-                    position: 'absolute',
-                    top: '16px',
-                    right: '16px',
-                    backgroundColor: 'rgba(22, 141, 192, 0.1)',
-                    color: '#168DC0',
-                    padding: '6px 12px',
-                    borderRadius: '9999px',
-                    fontSize: '0.75rem',
-                    fontWeight: 700,
-                    border: '1px solid rgba(22, 141, 192, 0.2)',
-                  }}
-                >
-                  🍃 {activeProduct.scent}
-                </div>
-              )}
-
-              {/* Product Bottle Image */}
+              {/* Product Bottle Image - Pure Unobstructed Presentation */}
               <img
                 src={activeProduct.image}
                 alt={activeProduct.name}

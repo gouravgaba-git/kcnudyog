@@ -110,28 +110,6 @@ export default function LifestyleSection({ onSelectProduct }) {
                   }}
                   onClick={() => onSelectProduct(product)}
                 >
-                  {/* Room Tag */}
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: '12px',
-                      left: '12px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '6px',
-                      backgroundColor: '#F8FAFC',
-                      padding: '4px 10px',
-                      borderRadius: '9999px',
-                      border: '1px solid #E2E8F0',
-                      fontSize: '0.74rem',
-                      fontWeight: 700,
-                      color: '#0F172A',
-                    }}
-                  >
-                    {getIconForRoom(sol.id)}
-                    <span>{sol.room}</span>
-                  </div>
-
                   {/* Bottle Image */}
                   <img
                     src={product.image}
@@ -146,23 +124,6 @@ export default function LifestyleSection({ onSelectProduct }) {
                     onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
                     onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
                   />
-
-                  {/* Highlight Badge */}
-                  <span
-                    style={{
-                      position: 'absolute',
-                      bottom: '10px',
-                      right: '12px',
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      backgroundColor: sol.accentColor,
-                      color: sol.id === 'kitchen' ? '#000000' : '#FFFFFF',
-                      padding: '3px 8px',
-                      borderRadius: '6px',
-                    }}
-                  >
-                    {sol.highlightBadge}
-                  </span>
                 </div>
 
                 {/* Content */}
