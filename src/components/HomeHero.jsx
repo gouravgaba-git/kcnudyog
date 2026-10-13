@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Sparkles, ShieldCheck, Truck, Package, MessageCircle, FileText } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Truck, Package, MessageCircle, FileText, Phone } from 'lucide-react';
 import { PRODUCTS, COMPANY_INFO } from '../data/productsData';
 
 export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSelectProduct, onNavigate }) {
@@ -12,13 +12,13 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
       style={{
         position: 'relative',
         backgroundColor: '#FFFFFF',
-        paddingTop: 'clamp(40px, 6vw, 72px)',
-        paddingBottom: 'clamp(48px, 7vw, 80px)',
+        paddingTop: 'clamp(36px, 5vw, 64px)',
+        paddingBottom: 'clamp(48px, 6vw, 72px)',
         overflow: 'hidden',
-        borderBottom: '1px solid #F1F5F9',
+        flexGrow: 1,
       }}
     >
-      {/* Background Soft Gradients */}
+      {/* Background Soft Ambient Gradients */}
       <div
         style={{
           position: 'absolute',
@@ -57,7 +57,7 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
               borderRadius: '9999px',
               backgroundColor: '#EEF2FF',
               border: '1px solid #E0E7FF',
-              marginBottom: '20px',
+              marginBottom: '18px',
             }}
           >
             <Sparkles size={14} color="#2B176F" />
@@ -86,7 +86,7 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
               color: '#2B176F',
               lineHeight: 1.15,
               letterSpacing: '-0.03em',
-              marginBottom: '20px',
+              marginBottom: '18px',
             }}
           >
             A Cleaner Home.{' '}
@@ -108,7 +108,7 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
               color: '#475569',
               lineHeight: 1.6,
               maxWidth: '680px',
-              margin: '0 auto 32px',
+              margin: '0 auto 28px',
             }}
           >
             Everyday hygiene essentials engineered with high active ingredients. Formulated for
@@ -116,17 +116,18 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
             commercial establishments.
           </p>
 
-          {/* CTAs */}
+          {/* Two Primary CTAs + Fast Action Links */}
           <div
             style={{
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              gap: '14px',
+              gap: '12px',
               flexWrap: 'wrap',
-              marginBottom: '40px',
+              marginBottom: '32px',
             }}
           >
+            {/* CTA 1: Explore Products */}
             <button
               onClick={onExploreProducts}
               className="btn btn-primary"
@@ -143,8 +144,9 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
               <ArrowRight size={18} />
             </button>
 
+            {/* CTA 2: Contact Us */}
             <button
-              onClick={onOpenCatalogModal}
+              onClick={() => onNavigate('contact')}
               className="btn btn-outline"
               style={{
                 padding: '14px 24px',
@@ -156,10 +158,26 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                 backgroundColor: '#FFFFFF',
               }}
             >
-              <FileText size={18} color="#2B176F" />
+              <Phone size={17} color="#2B176F" />
+              <span>Contact Us</span>
+            </button>
+
+            {/* CTA 3: Get Price List */}
+            <button
+              onClick={onOpenCatalogModal}
+              className="btn btn-navy"
+              style={{
+                padding: '14px 22px',
+                fontSize: '0.96rem',
+                fontWeight: 700,
+                borderRadius: '12px',
+              }}
+            >
+              <FileText size={17} />
               <span>Get Price List</span>
             </button>
 
+            {/* CTA 4: WhatsApp */}
             <a
               href={whatsappUrl}
               target="_blank"
@@ -167,13 +185,13 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
               className="btn btn-whatsapp"
               style={{
                 padding: '14px 22px',
-                fontSize: '1rem',
+                fontSize: '0.96rem',
                 fontWeight: 700,
                 borderRadius: '12px',
               }}
             >
               <MessageCircle size={18} />
-              <span>Chat on WhatsApp</span>
+              <span>WhatsApp</span>
             </a>
           </div>
 
@@ -188,7 +206,7 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
               paddingTop: '12px',
               borderTop: '1px solid #F1F5F9',
               maxWidth: '720px',
-              margin: '0 auto 40px',
+              margin: '0 auto 32px',
             }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#334155', fontSize: '0.88rem', fontWeight: 600 }}>
@@ -210,7 +228,7 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
         <div
           style={{
             position: 'relative',
-            marginTop: '20px',
+            marginTop: '10px',
             background: 'linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%)',
             borderRadius: '24px',
             border: '1px solid #E2E8F0',
@@ -379,16 +397,35 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
             ))}
           </div>
 
-          {/* Stage Floor Reflection Line */}
+          {/* Bottom Stage Strip */}
           <div
             style={{
-              width: '80%',
-              height: '3px',
-              margin: '20px auto 0',
-              background: 'radial-gradient(ellipse at center, rgba(22, 141, 192, 0.4) 0%, rgba(255,255,255,0) 80%)',
-              borderRadius: '50%',
+              marginTop: '24px',
+              paddingTop: '16px',
+              borderTop: '1px solid #F1F5F9',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              flexWrap: 'wrap',
+              gap: '12px',
             }}
-          />
+          >
+            <div style={{ fontSize: '0.86rem', color: '#64748B' }}>
+              Want to see individual product directions, safety & pack sizes?
+            </div>
+            <button
+              onClick={onExploreProducts}
+              className="btn btn-navy"
+              style={{
+                padding: '8px 16px',
+                fontSize: '0.84rem',
+                fontWeight: 700,
+                borderRadius: '8px',
+              }}
+            >
+              <span>Browse Full Catalogue →</span>
+            </button>
+          </div>
         </div>
       </div>
     </section>

@@ -5,12 +5,8 @@ import MobileActionDock from './components/MobileActionDock';
 import CatalogModal from './components/CatalogModal';
 import ProductDetailModal from './components/ProductDetailModal';
 
-// Homepage Components
-import HomeHero from './components/HomeHero';
-import CategoryGrid from './components/CategoryGrid';
-import HomeExploreHub from './components/HomeExploreHub';
-
 // Dedicated Sub-Pages
+import HomeHero from './components/HomeHero';
 import ProductsPage from './components/ProductsPage';
 import SolutionsPage from './components/SolutionsPage';
 import WhyUsPage from './components/WhyUsPage';
@@ -93,22 +89,12 @@ export default function App() {
       {/* Main Routed Content - Dedicated Page per Route */}
       <main style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         {currentPage === 'home' && (
-          <>
-            <HomeHero
-              onExploreProducts={() => navigate('products')}
-              onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-              onSelectProduct={handleSelectProduct}
-              onNavigate={navigate}
-            />
-            <CategoryGrid
-              onSelectProduct={handleSelectProduct}
-              onNavigateToProducts={() => navigate('products')}
-            />
-            <HomeExploreHub
-              onNavigate={navigate}
-              onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-            />
-          </>
+          <HomeHero
+            onExploreProducts={() => navigate('products')}
+            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+            onSelectProduct={handleSelectProduct}
+            onNavigate={navigate}
+          />
         )}
 
         {currentPage === 'products' && (
