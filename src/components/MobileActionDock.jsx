@@ -66,14 +66,24 @@ export default function MobileActionDock({
           flexDirection: 'column',
           alignItems: 'center',
           gap: '2px',
-          color: currentPage === 'products' ? '#168DC0' : '#64748B',
+          color:
+            currentPage === 'products' || currentPage === 'product-detail'
+              ? '#168DC0'
+              : '#64748B',
           fontSize: '0.68rem',
           fontWeight: 700,
           cursor: 'pointer',
           padding: '4px 6px',
         }}
       >
-        <Package size={19} color={currentPage === 'products' ? '#168DC0' : '#64748B'} />
+        <Package
+          size={19}
+          color={
+            currentPage === 'products' || currentPage === 'product-detail'
+              ? '#168DC0'
+              : '#64748B'
+          }
+        />
         <span>Products</span>
       </button>
 

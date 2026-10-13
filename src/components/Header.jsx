@@ -72,7 +72,9 @@ export default function Header({
           }}
         >
           {navLinks.map((link) => {
-            const isActive = currentPage === link.id;
+            const isActive =
+              currentPage === link.id ||
+              (link.id === 'products' && currentPage === 'product-detail');
             return (
               <button
                 key={link.id}
@@ -142,7 +144,9 @@ export default function Header({
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {navLinks.map((link) => {
-              const isActive = currentPage === link.id;
+              const isActive =
+                currentPage === link.id ||
+                (link.id === 'products' && currentPage === 'product-detail');
               return (
                 <button
                   key={link.id}

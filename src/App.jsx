@@ -3,11 +3,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import MobileActionDock from './components/MobileActionDock';
 import CatalogModal from './components/CatalogModal';
-import ProductDetailModal from './components/ProductDetailModal';
 
 // Dedicated Sub-Pages
 import HomeHero from './components/HomeHero';
 import ProductsPage from './components/ProductsPage';
+import ProductDetailPage from './components/ProductDetailPage';
 import SolutionsPage from './components/SolutionsPage';
 import WhyUsPage from './components/WhyUsPage';
 import AboutPage from './components/AboutPage';
@@ -16,7 +16,7 @@ import ContactPage from './components/ContactPage';
 import { PRODUCTS } from './data/productsData';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home'); // home | products | solutions | why-us | about | contact
+  const [currentPage, setCurrentPage] = useState('home'); // home | products | product-detail | solutions | why-us | about | contact
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCatalogModalOpen, setIsCatalogModalOpen] = useState(false);
 
@@ -25,15 +25,27 @@ export default function App() {
     const hash = window.location.hash.replace(/^#\/?/, '');
     const [path, queryString] = hash.split('?');
 
-    if (path === 'products') {
-      setCurrentPage('products');
-      if (queryString) {
-        const params = new URLSearchParams(queryString);
-        const prodId = params.get('id');
-        if (prodId) {
-          const matched = PRODUCTS.find((p) => p.id === prodId);
-          if (matched) setSelectedProduct(matched);
-        }
+    // Handle dedicated product detail page routes: #/product/:id or #/products/:id
+    if (path.startsWith('product/') || path.startsWith('products/')) {
+      const prodId = path.split('/')[1];
+      const matched = PRODUCTS.find((p) => p.id === prodId) || PRODUCTS[0];
+      setSelectedProduct(matched);
+      setCurrentPage('product-detail');
+    } else if (path === 'product') {
+      const params = new URLSearchParams(queryString || '');
+      const prodId = params.get('id');
+      const matched = PRODUCTS.find((p) => p.id === prodId) || PRODUCTS[0];
+      setSelectedProduct(matched);
+      setCurrentPage('product-detail');
+    } else if (path === 'products') {
+      const params = new URLSearchParams(queryString || '');
+      const prodId = params.get('id');
+      if (prodId) {
+        const matched = PRODUCTS.find((p) => p.id === prodId) || PRODUCTS[0];
+        setSelectedProduct(matched);
+        setCurrentPage('product-detail');
+      } else {
+        setCurrentPage('products');
       }
     } else if (path === 'solutions') {
       setCurrentPage('solutions');
@@ -59,11 +71,19 @@ export default function App() {
   }, []);
 
   // Programmatic Navigation
-  const navigate = (page) => {
-    setCurrentPage(page);
+  const navigate = (page, param) => {
     if (page === 'home') {
+      setCurrentPage('home');
       window.location.hash = '#/';
+    } else if (page === 'product' || page === 'product-detail') {
+      const targetProd = param
+        ? PRODUCTS.find((p) => p.id === param) || selectedProduct || PRODUCTS[0]
+        : selectedProduct || PRODUCTS[0];
+      setSelectedProduct(targetProd);
+      setCurrentPage('product-detail');
+      window.location.hash = `#/product/${targetProd.id}`;
     } else {
+      setCurrentPage(page);
       window.location.hash = `#/${page}`;
     }
     window.scrollTo({ top: 0, behavior: 'instant' });
@@ -71,10 +91,9 @@ export default function App() {
 
   const handleSelectProduct = (product) => {
     setSelectedProduct(product);
-  };
-
-  const handleCloseProductModal = () => {
-    setSelectedProduct(null);
+    setCurrentPage('product-detail');
+    window.location.hash = `#/product/${product.id}`;
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (
@@ -99,6 +118,15 @@ export default function App() {
 
         {currentPage === 'products' && (
           <ProductsPage
+            onSelectProduct={handleSelectProduct}
+            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+          />
+        )}
+
+        {currentPage === 'product-detail' && (
+          <ProductDetailPage
+            product={selectedProduct}
+            onNavigate={navigate}
             onSelectProduct={handleSelectProduct}
             onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
           />
@@ -142,13 +170,6 @@ export default function App() {
         currentPage={currentPage}
         onNavigate={navigate}
         onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-      />
-
-      {/* Product Detail Modal */}
-      <ProductDetailModal
-        product={selectedProduct}
-        isOpen={Boolean(selectedProduct)}
-        onClose={handleCloseProductModal}
       />
 
       {/* Price List & Catalogue Lead Modal */}
