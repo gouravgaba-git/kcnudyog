@@ -1,10 +1,14 @@
 import React from 'react';
-import { Phone, MessageCircle, FileText } from 'lucide-react';
+import { Home, Package, Phone, MessageCircle, FileText } from 'lucide-react';
 import { COMPANY_INFO } from '../data/productsData';
 
-export default function MobileActionDock({ onOpenCatalogModal }) {
+export default function MobileActionDock({
+  currentPage,
+  onNavigate,
+  onOpenCatalogModal,
+}) {
   const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
-    'Hello Nakul, I am reaching out from your website kcnudyog.com for product supply inquiry.'
+    'Hello Nakul Sakhuja, I am reaching out from your website kcnudyog.com for product supply inquiry.'
   )}`;
 
   return (
@@ -16,61 +20,127 @@ export default function MobileActionDock({ onOpenCatalogModal }) {
         left: 0,
         right: 0,
         backgroundColor: '#FFFFFF',
-        borderTop: '1px solid var(--border-subtle)',
-        padding: '10px 16px',
-        display: 'none', // Shown via CSS media query on mobile
+        borderTop: '1px solid #E2E8F0',
+        padding: '6px 12px 10px',
+        display: 'none', // Controlled via media query in index.css
         alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: '8px',
+        justifyContent: 'space-around',
         zIndex: 40,
-        boxShadow: '0 -4px 10px rgba(0, 0, 0, 0.08)',
+        boxShadow: '0 -4px 16px rgba(0, 0, 0, 0.08)',
       }}
     >
+      {/* Home */}
+      <button
+        onClick={() => {
+          onNavigate('home');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        style={{
+          background: 'none',
+          border: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2px',
+          color: currentPage === 'home' ? '#168DC0' : '#64748B',
+          fontSize: '0.68rem',
+          fontWeight: 700,
+          cursor: 'pointer',
+          padding: '4px 6px',
+        }}
+      >
+        <Home size={19} color={currentPage === 'home' ? '#168DC0' : '#64748B'} />
+        <span>Home</span>
+      </button>
+
+      {/* Products */}
+      <button
+        onClick={() => {
+          onNavigate('products');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+        style={{
+          background: 'none',
+          border: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2px',
+          color: currentPage === 'products' ? '#168DC0' : '#64748B',
+          fontSize: '0.68rem',
+          fontWeight: 700,
+          cursor: 'pointer',
+          padding: '4px 6px',
+        }}
+      >
+        <Package size={19} color={currentPage === 'products' ? '#168DC0' : '#64748B'} />
+        <span>Products</span>
+      </button>
+
+      {/* WhatsApp (Prominent Green Floating Center Action) */}
       <a
         href={whatsappUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="btn btn-whatsapp"
         style={{
-          flex: 1,
-          padding: '10px 8px',
-          fontSize: '0.85rem',
-          borderRadius: '8px',
+          textDecoration: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2px',
+          backgroundColor: '#25D366',
+          color: '#FFFFFF',
+          borderRadius: '9999px',
+          padding: '8px 14px',
+          fontSize: '0.72rem',
+          fontWeight: 700,
+          boxShadow: '0 4px 12px rgba(37, 211, 102, 0.35)',
+          transform: 'translateY(-6px)',
         }}
       >
-        <MessageCircle size={17} />
+        <MessageCircle size={18} color="#FFFFFF" />
         <span>WhatsApp</span>
       </a>
 
-      <a
-        href={`tel:${COMPANY_INFO.phoneRaw}`}
-        className="btn btn-outline"
-        style={{
-          flex: 1,
-          padding: '10px 8px',
-          fontSize: '0.85rem',
-          borderRadius: '8px',
-          borderColor: 'var(--brand-blue)',
-          color: 'var(--brand-blue)',
-        }}
-      >
-        <Phone size={16} />
-        <span>Call</span>
-      </a>
-
+      {/* Price List */}
       <button
         onClick={onOpenCatalogModal}
-        className="btn btn-navy"
         style={{
-          flex: 1,
-          padding: '10px 8px',
-          fontSize: '0.85rem',
-          borderRadius: '8px',
+          background: 'none',
+          border: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2px',
+          color: '#2B176F',
+          fontSize: '0.68rem',
+          fontWeight: 700,
+          cursor: 'pointer',
+          padding: '4px 6px',
         }}
       >
-        <FileText size={16} />
+        <FileText size={19} color="#2B176F" />
         <span>Price List</span>
       </button>
+
+      {/* Call */}
+      <a
+        href={`tel:${COMPANY_INFO.phoneRaw}`}
+        style={{
+          textDecoration: 'none',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '2px',
+          color: '#64748B',
+          fontSize: '0.68rem',
+          fontWeight: 700,
+          padding: '4px 6px',
+        }}
+      >
+        <Phone size={19} color="#64748B" />
+        <span>Call</span>
+      </a>
     </div>
   );
 }

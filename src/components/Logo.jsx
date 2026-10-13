@@ -131,7 +131,7 @@ export default function Logo({
               letterSpacing: '-0.01em',
             }}
           >
-            GoCare
+            Clean Go
           </span>
           <span
             style={{
