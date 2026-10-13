@@ -13,6 +13,7 @@ export const PRODUCTS = [
     volume: '500ml, 1L & 5L Can',
     availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Ocean Fresh Disinfectant',
+    scents: ['Ocean Fresh', 'Original Pine'],
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
       'Removes stubborn yellow scaling & hard-water stains',
@@ -49,6 +50,7 @@ export const PRODUCTS = [
     volume: '500ml, 1L & 5L Can',
     availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Crisp Ocean Mist',
+    scents: ['Ocean Mist', 'Crystal Clear'],
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
       'Quick-drying formulation with 100% streak-free finish',
@@ -84,6 +86,7 @@ export const PRODUCTS = [
     volume: '500ml, 1L & 5L Can',
     availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Fresh Green Apple Fragrance',
+    scents: ['Fresh Green Apple', 'Soft Rose'],
     tagline: 'Soft on Hands, Tough on Germs',
     features: [
       'Cuts grease, food odors, and sticky residue quickly',
@@ -119,6 +122,7 @@ export const PRODUCTS = [
     volume: '500ml, 1L & 5L Can',
     availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Fresh Lemon Citrus',
+    scents: ['Fresh Lemon', 'Active Lime'],
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
       'Dissolves burnt oil, stubborn ghee, and curries effortlessly',
@@ -154,6 +158,7 @@ export const PRODUCTS = [
     volume: '500ml, 1L & 5L Can',
     availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Fresh Rose Fragrance',
+    scents: ['Floral Rose', 'Citrus Lemon', 'Pine Fresh'],
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
       'Removes daily dirt, mud tracks, and sticky kitchen spills easily',
@@ -189,6 +194,7 @@ export const PRODUCTS = [
     volume: '500ml, 1L & 5L Can',
     availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Floral Jasmine & Pine Fresh',
+    scents: ['Floral Jasmine', 'Pine Fresh'],
     tagline: 'Powerful Disinfectant & Odor Eliminator',
     features: [
       'Dense milky white active disinfectant formula that emulsifies smoothly in water',
