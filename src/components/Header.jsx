@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
-import { Phone, MessageCircle, FileText, Menu, X, ChevronRight } from 'lucide-react';
+import { Menu, X, ChevronRight, Phone } from 'lucide-react';
 import Logo from './Logo';
 import { COMPANY_INFO } from '../data/productsData';
 
 export default function Header({
   currentPage,
   onNavigate,
-  onOpenCatalogModal,
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
-    'Hello KCN Udyog, I would like to inquire about your Clean Go cleaning products.'
-  )}`;
 
   const navLinks = [
     { id: 'home', label: 'Home' },
@@ -113,45 +108,6 @@ export default function Header({
           })}
         </nav>
 
-        {/* Desktop Action Buttons */}
-        <div
-          className="header-actions desktop-actions"
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '8px',
-          }}
-        >
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-whatsapp"
-            style={{
-              padding: '7px 14px',
-              fontSize: '0.84rem',
-              fontWeight: 600,
-            }}
-            title="Chat with KCN Udyog on WhatsApp"
-          >
-            <MessageCircle size={15} />
-            <span>WhatsApp</span>
-          </a>
-
-          <button
-            onClick={onOpenCatalogModal}
-            className="btn btn-navy"
-            style={{
-              padding: '7px 14px',
-              fontSize: '0.84rem',
-              fontWeight: 600,
-            }}
-          >
-            <FileText size={14} />
-            <span>Price List</span>
-          </button>
-        </div>
-
         {/* Mobile Hamburger Button */}
         <button
           className="mobile-menu-btn"
@@ -214,47 +170,14 @@ export default function Header({
             })}
           </div>
 
-          {/* Mobile Actions in Drawer */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginTop: '8px' }}>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp"
-              style={{
-                padding: '12px',
-                fontSize: '0.92rem',
-                justifyContent: 'center',
-                borderRadius: '10px',
-              }}
-            >
-              <MessageCircle size={18} />
-              <span>Chat on WhatsApp</span>
-            </a>
-
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenCatalogModal();
-              }}
-              className="btn btn-navy"
-              style={{
-                padding: '12px',
-                fontSize: '0.92rem',
-                justifyContent: 'center',
-                borderRadius: '10px',
-              }}
-            >
-              <FileText size={18} />
-              <span>Get Wholesale Price List</span>
-            </button>
-
+          <div style={{ marginTop: '8px' }}>
             <a
               href={`tel:${COMPANY_INFO.phoneRaw}`}
               className="btn btn-outline"
               style={{
+                width: '100%',
                 padding: '10px',
-                fontSize: '0.86rem',
+                fontSize: '0.88rem',
                 justifyContent: 'center',
                 borderColor: '#CBD5E1',
                 color: '#334155',
