@@ -192,7 +192,7 @@ export default function DistributorCTA({ onOpenCatalogModal, onNavigateToContact
                     BULK INSTITUTIONAL SUPPLY
                   </div>
                   <div style={{ fontSize: '0.88rem', fontWeight: 600, color: '#1E293B', marginTop: '2px' }}>
-                    5 Litre Heavy-Duty Cans & 50 Litre Drums for corporate offices, hospitals, schools & malls.
+                    5 Litre Heavy-Duty Cans for corporate offices, hospitals, schools & malls.
                   </div>
                 </div>
 

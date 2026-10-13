@@ -248,7 +248,7 @@ export default function HeroSection({ onOpenCatalogModal }) {
                       Bulk Packaging & Bottling Line
                     </strong>
                     <span style={{ fontSize: '0.8rem', color: '#15803D' }}>
-                      Standardized retail 250ml/500ml & commercial 5L/50L cans.
+                      Standardized 500ml, 1 Litre bottles & 5 Litre commercial cans.
                     </span>
                   </div>
                 </div>

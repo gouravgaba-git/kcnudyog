@@ -28,25 +28,17 @@ export default function ProductDetailPage({
   // If product is not provided, fall back to first product
   const activeProduct = product || PRODUCTS[0];
 
-  const allPackOptions = Array.from(
-    new Set([
-      ...(activeProduct.commercialPacks || []),
-      ...(activeProduct.retailPacks || []),
-      ...(activeProduct.availableSizes || []),
-    ])
-  );
+  const allPackOptions = activeProduct.availableSizes || ['500 ml', '1 Litre', '5 Litre'];
 
   const [selectedPack, setSelectedPack] = useState(
-    allPackOptions[0] || activeProduct.volume || '5 Litre Commercial Can'
+    allPackOptions[0] || '500 ml'
   );
 
   useEffect(() => {
     if (activeProduct) {
       const defaultPack =
-        (activeProduct.commercialPacks && activeProduct.commercialPacks[0]) ||
         (activeProduct.availableSizes && activeProduct.availableSizes[0]) ||
-        activeProduct.volume ||
-        '5 Litre Commercial Can';
+        '500 ml';
       setSelectedPack(defaultPack);
     }
     window.scrollTo({ top: 0, behavior: 'instant' });

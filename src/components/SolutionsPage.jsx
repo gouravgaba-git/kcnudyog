@@ -277,7 +277,7 @@ export default function SolutionsPage({ onSelectProduct, onOpenCatalogModal, onN
               Custom Formulation Supply for Commercial Spaces
             </h3>
             <p style={{ fontSize: '0.88rem', color: '#CBD5E1', margin: 0, maxWidth: '600px' }}>
-              Supplying 5L commercial cans and 50L facility drums for hotels, corporate offices,
+              Supplying 500ml bottles, 1L packs, and 5L commercial cans for hotels, corporate offices,
               hospitals, and shopping complexes across Delhi NCR.
             </p>
           </div>

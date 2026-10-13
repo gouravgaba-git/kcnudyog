@@ -62,7 +62,7 @@ export default function SegmentToggle({ isCommercial, setIsCommercial }) {
           }}
         >
           <Building2 size={16} style={{ color: isCommercial ? '#38BDF8' : 'inherit' }} />
-          <span>Commercial & Bulk (5L / 50L)</span>
+          <span>Commercial Cans (5L)</span>
         </button>
       </div>
 

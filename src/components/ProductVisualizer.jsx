@@ -96,7 +96,7 @@ export default function ProductVisualizer({ type = 'tall', liquidGradient, liqui
             </text>
             <rect x="48" y="122" width="54" height="16" rx="3" fill="#DCFCE7" />
             <text x="75" y="133" fill="#0D8249" fontSize="7.5" fontWeight="bold" textAnchor="middle" fontFamily="sans-serif">
-              5L / 50L BULK
+              5 LITRE CAN
             </text>
 
             {/* Measurement Ticks on side */}

@@ -10,8 +10,8 @@ export const PRODUCTS = [
     image: '/images/products/cleango-toilet-cleaner.jpg',
     liquidColor: '#1E40AF',
     liquidGradient: 'linear-gradient(180deg, #3B82F6 0%, #1E3A8A 100%)',
-    volume: '5L Commercial Can',
-    availableSizes: ['500 ml Angled Nozzle Bottle', '1 Litre Pack', '5 Litre Commercial Can', '50 Litre Facility Drum'],
+    volume: '500ml, 1L & 5L Can',
+    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Ocean Fresh Disinfectant',
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
@@ -31,8 +31,8 @@ export const PRODUCTS = [
       'Do not mix with bleach or other acidic cleaning agents.',
       'In case of accidental eye contact, rinse immediately with clean water for 15 minutes.',
     ],
-    commercialPacks: ['5 Litre Commercial Can', '50 Litre Drum'],
-    retailPacks: ['500 ml Angled Nozzle Bottle', '1 Litre Pack'],
+    commercialPacks: ['5 Litre'],
+    retailPacks: ['500 ml', '1 Litre'],
     targetAudience: 'Hotels, Offices, Malls, Hospitals & Domestic Restrooms',
   },
   {
@@ -46,8 +46,8 @@ export const PRODUCTS = [
     image: '/images/products/cleango-glass-cleaner.jpg',
     liquidColor: '#0EA5E9',
     liquidGradient: 'linear-gradient(180deg, #38BDF8 0%, #0369A1 100%)',
-    volume: '5L Commercial Can',
-    availableSizes: ['500 ml Trigger Spray Bottle', '1 Litre Refill Bottle', '5 Litre Commercial Can', '20 Litre Bulk Pack'],
+    volume: '500ml, 1L & 5L Can',
+    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Crisp Ocean Mist',
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
@@ -66,8 +66,8 @@ export const PRODUCTS = [
       'Avoid breathing concentrated mist in unventilated areas.',
       'Store upright in a cool, dry place out of direct sunlight.',
     ],
-    commercialPacks: ['5 Litre Commercial Can', '20 Litre Bulk Pack'],
-    retailPacks: ['500 ml Trigger Spray Bottle', '1 Litre Refill Bottle'],
+    commercialPacks: ['5 Litre'],
+    retailPacks: ['500 ml', '1 Litre'],
     targetAudience: 'Showrooms, Automobile Detailers, Offices, Hospitality & Residences',
   },
   {
@@ -81,8 +81,8 @@ export const PRODUCTS = [
     image: '/images/products/cleango-hand-wash.jpg',
     liquidColor: '#22C55E',
     liquidGradient: 'linear-gradient(180deg, #4ADE80 0%, #15803D 100%)',
-    volume: '5L Commercial Can',
-    availableSizes: ['250 ml Pump Dispenser', '500 ml Refill Bottle', '1 Litre Refill Pack', '5 Litre Refill Can', '20 Litre Bulk'],
+    volume: '500ml, 1L & 5L Can',
+    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Fresh Green Apple Fragrance',
     tagline: 'Soft on Hands, Tough on Germs',
     features: [
@@ -101,8 +101,8 @@ export const PRODUCTS = [
       'Avoid contact with eyes; rinse immediately with cold water if contact occurs.',
       'Store away from direct heat.',
     ],
-    commercialPacks: ['5 Litre Refill Can', '20 Litre Restroom Bulk'],
-    retailPacks: ['250 ml Pump Bottle', '500 ml Refill Bottle', '1 Litre Pack'],
+    commercialPacks: ['5 Litre'],
+    retailPacks: ['500 ml', '1 Litre'],
     targetAudience: 'Corporate Restrooms, Clinics, Hospitality Centers & Domestic Washbasins',
   },
   {
@@ -116,8 +116,8 @@ export const PRODUCTS = [
     image: '/images/products/cleango-dishwash-liquid.jpg',
     liquidColor: '#EAB308',
     liquidGradient: 'linear-gradient(180deg, #FDE047 0%, #CA8A04 100%)',
-    volume: '5L Commercial Can',
-    availableSizes: ['250 ml Bottle', '500 ml Squeeze Bottle', '1 Litre Pouch', '5 Litre Commercial Can', '50 Litre Drum'],
+    volume: '500ml, 1L & 5L Can',
+    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Fresh Lemon Citrus',
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
@@ -136,8 +136,8 @@ export const PRODUCTS = [
       'Do not ingest. If swallowed, drink plenty of water and seek medical advice.',
       'Rinse hands with clean water after use.',
     ],
-    commercialPacks: ['5 Litre Commercial Can', '50 Litre Industrial Drum'],
-    retailPacks: ['500 ml Squeeze Bottle', '1 Litre Refill Pouch'],
+    commercialPacks: ['5 Litre'],
+    retailPacks: ['500 ml', '1 Litre'],
     targetAudience: 'Commercial Kitchens, Catering Units, Restaurants, Canteens & Homes',
   },
   {
@@ -151,8 +151,8 @@ export const PRODUCTS = [
     image: '/images/products/cleango-floor-cleaner.jpg',
     liquidColor: '#EC4899',
     liquidGradient: 'linear-gradient(180deg, #F472B6 0%, #BE185D 100%)',
-    volume: '5L Commercial Can',
-    availableSizes: ['1 Litre Pour Bottle', '2 Litre Family Can', '5 Litre Commercial Can', '20 Litre Pail', '50 Litre Drum'],
+    volume: '500ml, 1L & 5L Can',
+    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Fresh Rose Fragrance',
     tagline: 'Powerful Cleaning For a Healthier Home',
     features: [
@@ -171,8 +171,8 @@ export const PRODUCTS = [
       'Avoid eye contact; wash thoroughly with water if contact occurs.',
       'Do not mix with acidic toilet cleaners or undiluted chemicals.',
     ],
-    commercialPacks: ['5 Litre Commercial Can', '20 Litre Pail', '50 Litre Drum'],
-    retailPacks: ['1 Litre Pour Bottle', '2 Litre Family Can'],
+    commercialPacks: ['5 Litre'],
+    retailPacks: ['500 ml', '1 Litre'],
     targetAudience: 'Hotels, Corporate Offices, Hospitals, Banquets, Housing Societies & Homes',
   },
   {
@@ -186,8 +186,8 @@ export const PRODUCTS = [
     image: '/images/products/cleango-white-phenyle.jpg',
     liquidColor: '#FFFFFF',
     liquidGradient: 'linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%)',
-    volume: 'Fluted Handle Jar / Bulk Can',
-    availableSizes: ['1 Litre Bottle', '2 Litre Handle Jar', '5 Litre Can', '50 Litre Wholesale Drum'],
+    volume: '500ml, 1L & 5L Can',
+    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
     scent: 'Floral Jasmine & Pine Fresh',
     tagline: 'Powerful Disinfectant & Odor Eliminator',
     features: [
@@ -206,8 +206,8 @@ export const PRODUCTS = [
       'Store in a cool and shaded location away from direct sunlight.',
       'Keep container securely capped when not in use.',
     ],
-    commercialPacks: ['5 Litre Can', '50 Litre Wholesale Drum'],
-    retailPacks: ['1 Litre Bottle', '2 Litre Handle Jar'],
+    commercialPacks: ['5 Litre'],
+    retailPacks: ['500 ml', '1 Litre'],
     targetAudience: 'Hospitals, Schools, Public Facilities, Industrial Floors & Residences',
   },
 ];
@@ -269,9 +269,9 @@ export const LIFESTYLE_SOLUTIONS = [
 
 export const WHY_CHOOSE_US = [
   {
-    title: 'Dual Pack Versatility',
-    desc: 'From 5 Litre heavy commercial cans and 50L bulk facility drums to everyday domestic consumer bottles.',
-    badge: 'Retail & Bulk Wholesale',
+    title: 'Packaging Versatility',
+    desc: 'Available in 500ml domestic bottles, 1 Litre packs, and 5 Litre commercial cans for homes and facilities.',
+    badge: '500ml, 1L & 5L Sizes',
     icon: 'PackageCheck',
   },
   {

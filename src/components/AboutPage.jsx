@@ -306,8 +306,7 @@ export default function AboutPage({ onExploreProducts, onOpenCatalogModal, onNav
                 Dual Pack Flexibility
               </h3>
               <p style={{ fontSize: '0.86rem', color: '#475569', lineHeight: 1.5, margin: 0 }}>
-                We bridge the gap between large 5L / 50L institutional bulk containers and ergonomic
-                everyday domestic retail packaging.
+                We provide heavy-duty 5L commercial cans alongside ergonomic 500ml and 1 Litre consumer packs.
               </p>
             </div>
 
