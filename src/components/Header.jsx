@@ -17,25 +17,16 @@ export default function Header({
   const navLinks = [
     { id: 'home', label: 'Home' },
     { id: 'products', label: 'Our Products' },
-    { id: 'solutions', label: 'Solutions', isAnchor: true },
-    { id: 'why-us', label: 'Why Us', isAnchor: true },
+    { id: 'solutions', label: 'Solutions' },
+    { id: 'why-us', label: 'Why Us' },
     { id: 'about', label: 'About Us' },
     { id: 'contact', label: 'Contact' },
   ];
 
-  const handleNavClick = (link) => {
+  const handleNavClick = (linkId) => {
     setMobileMenuOpen(false);
-    if (link.isAnchor) {
-      if (currentPage !== 'home') {
-        onNavigate('home', link.id);
-      } else {
-        const el = document.getElementById(link.id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      onNavigate(link.id);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+    onNavigate(linkId);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (
@@ -62,10 +53,7 @@ export default function Header({
       >
         {/* Brand Logo */}
         <button
-          onClick={() => {
-            onNavigate('home');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-          }}
+          onClick={() => handleNavClick('home')}
           style={{
             background: 'none',
             border: 'none',
@@ -89,11 +77,11 @@ export default function Header({
           }}
         >
           {navLinks.map((link) => {
-            const isActive = !link.isAnchor && currentPage === link.id;
+            const isActive = currentPage === link.id;
             return (
               <button
                 key={link.id}
-                onClick={() => handleNavClick(link)}
+                onClick={() => handleNavClick(link.id)}
                 style={{
                   background: 'none',
                   border: 'none',
@@ -198,11 +186,11 @@ export default function Header({
         >
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
             {navLinks.map((link) => {
-              const isActive = !link.isAnchor && currentPage === link.id;
+              const isActive = currentPage === link.id;
               return (
                 <button
                   key={link.id}
-                  onClick={() => handleNavClick(link)}
+                  onClick={() => handleNavClick(link.id)}
                   style={{
                     display: 'flex',
                     alignItems: 'center',

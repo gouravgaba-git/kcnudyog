@@ -8,6 +8,11 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
     'Hello KCN Udyog, I am contacting you from the website.'
   )}`;
 
+  const handleNav = (page) => {
+    onNavigate(page);
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  };
+
   return (
     <footer
       style={{
@@ -38,7 +43,9 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
                 padding: '6px 14px',
                 borderRadius: '8px',
                 width: 'fit-content',
+                cursor: 'pointer',
               }}
+              onClick={() => handleNav('home')}
             >
               <Logo size="small" showTagline={false} />
             </div>
@@ -95,7 +102,7 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
             </ul>
           </div>
 
-          {/* Column 3: Quick Links & Partnership */}
+          {/* Column 3: Quick Links & Pages */}
           <div>
             <h4
               style={{
@@ -107,12 +114,12 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
                 marginBottom: '16px',
               }}
             >
-              Company & Links
+              Explore Pages
             </h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
               <li>
                 <button
-                  onClick={() => onNavigate('home')}
+                  onClick={() => handleNav('home')}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -129,7 +136,7 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('products')}
+                  onClick={() => handleNav('products')}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -146,7 +153,41 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('about')}
+                  onClick={() => handleNav('solutions')}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    color: '#94A3B8',
+                    fontSize: '0.86rem',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#38BDF8')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
+                >
+                  Room Cleaning Solutions
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('why-us')}
+                  style={{
+                    background: 'none',
+                    border: 'none',
+                    padding: 0,
+                    color: '#94A3B8',
+                    fontSize: '0.86rem',
+                    cursor: 'pointer',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = '#38BDF8')}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
+                >
+                  Why Choose KCN UDYOG
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => handleNav('about')}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -163,7 +204,7 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
               </li>
               <li>
                 <button
-                  onClick={() => onNavigate('contact')}
+                  onClick={() => handleNav('contact')}
                   style={{
                     background: 'none',
                     border: 'none',
@@ -175,7 +216,7 @@ export default function Footer({ onNavigate, onSelectProduct, onOpenCatalogModal
                   onMouseEnter={(e) => (e.currentTarget.style.color = '#38BDF8')}
                   onMouseLeave={(e) => (e.currentTarget.style.color = '#94A3B8')}
                 >
-                  Contact & Dealership
+                  Contact & Dealership Hub
                 </button>
               </li>
               <li>

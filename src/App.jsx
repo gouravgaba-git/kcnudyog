@@ -8,19 +8,19 @@ import ProductDetailModal from './components/ProductDetailModal';
 // Homepage Components
 import HomeHero from './components/HomeHero';
 import CategoryGrid from './components/CategoryGrid';
-import LifestyleSection from './components/LifestyleSection';
-import WhyUsSection from './components/WhyUsSection';
-import DistributorCTA from './components/DistributorCTA';
+import HomeExploreHub from './components/HomeExploreHub';
 
 // Dedicated Sub-Pages
 import ProductsPage from './components/ProductsPage';
+import SolutionsPage from './components/SolutionsPage';
+import WhyUsPage from './components/WhyUsPage';
 import AboutPage from './components/AboutPage';
 import ContactPage from './components/ContactPage';
 
 import { PRODUCTS } from './data/productsData';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState('home'); // home | products | about | contact
+  const [currentPage, setCurrentPage] = useState('home'); // home | products | solutions | why-us | about | contact
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isCatalogModalOpen, setIsCatalogModalOpen] = useState(false);
 
@@ -39,20 +39,20 @@ export default function App() {
           if (matched) setSelectedProduct(matched);
         }
       }
+    } else if (path === 'solutions') {
+      setCurrentPage('solutions');
+    } else if (path === 'why-us') {
+      setCurrentPage('why-us');
     } else if (path === 'about') {
       setCurrentPage('about');
     } else if (path === 'contact') {
       setCurrentPage('contact');
     } else {
       setCurrentPage('home');
-      // If there's an anchor on home (e.g. #solutions, #why-us)
-      if (path && (path === 'solutions' || path === 'why-us' || path === 'categories')) {
-        setTimeout(() => {
-          const el = document.getElementById(path);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-      }
     }
+
+    // Always scroll to top when a new page loads
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   useEffect(() => {
@@ -63,26 +63,16 @@ export default function App() {
   }, []);
 
   // Programmatic Navigation
-  const navigate = (page, anchor = null) => {
+  const navigate = (page) => {
     setCurrentPage(page);
     if (page === 'home') {
-      if (anchor) {
-        window.location.hash = `#/${anchor}`;
-        setTimeout(() => {
-          const el = document.getElementById(anchor);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 50);
-      } else {
-        window.location.hash = '#/';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      }
+      window.location.hash = '#/';
     } else {
       window.location.hash = `#/${page}`;
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
-  // Select product helper (also updates url hash for shareable link)
   const handleSelectProduct = (product) => {
     setSelectedProduct(product);
   };
@@ -100,7 +90,7 @@ export default function App() {
         onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
       />
 
-      {/* Main Routed Content */}
+      {/* Main Routed Content - Dedicated Page per Route */}
       <main style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
         {currentPage === 'home' && (
           <>
@@ -114,14 +104,9 @@ export default function App() {
               onSelectProduct={handleSelectProduct}
               onNavigateToProducts={() => navigate('products')}
             />
-            <LifestyleSection onSelectProduct={handleSelectProduct} />
-            <WhyUsSection
+            <HomeExploreHub
+              onNavigate={navigate}
               onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-              onNavigateToContact={() => navigate('contact')}
-            />
-            <DistributorCTA
-              onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-              onNavigateToContact={() => navigate('contact')}
             />
           </>
         )}
@@ -130,6 +115,21 @@ export default function App() {
           <ProductsPage
             onSelectProduct={handleSelectProduct}
             onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+          />
+        )}
+
+        {currentPage === 'solutions' && (
+          <SolutionsPage
+            onSelectProduct={handleSelectProduct}
+            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+            onNavigateToContact={() => navigate('contact')}
+          />
+        )}
+
+        {currentPage === 'why-us' && (
+          <WhyUsPage
+            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+            onNavigateToContact={() => navigate('contact')}
           />
         )}
 
