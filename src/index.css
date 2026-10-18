@@ -286,3 +286,218 @@ input:focus, select:focus, textarea:focus {
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
 }
+
+/* Born Good Inspired Circular Category Strip */
+.circle-cat-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 3vw, 28px);
+  overflow-x: auto;
+  padding: 14px 4px 18px;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.circle-cat-strip::-webkit-scrollbar {
+  display: none;
+}
+
+.circle-cat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  min-width: 78px;
+  text-decoration: none;
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.circle-cat-item:hover {
+  transform: translateY(-4px);
+}
+
+.circle-cat-bubble {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border: 2px solid #E2E8F0;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.circle-cat-item:hover .circle-cat-bubble,
+.circle-cat-item.active .circle-cat-bubble {
+  border-color: var(--brand-sage, #00B189);
+  box-shadow: 0 8px 20px rgba(0, 177, 137, 0.2);
+  transform: scale(1.05);
+}
+
+.circle-cat-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+  text-align: center;
+  line-height: 1.25;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+
+.circle-cat-item:hover .circle-cat-label,
+.circle-cat-item.active .circle-cat-label {
+  color: var(--brand-sage, #00B189);
+}
+
+/* Born Good Trust Ribbon (Icon-Text Bar) */
+.trust-ribbon {
+  background-color: var(--brand-sky, #8EB9E5);
+  color: #FFFFFF;
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.trust-ribbon-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.trust-ribbon-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Born Good Star Rating Widget */
+.star-rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  color: #F59E0B;
+}
+
+.star-rating-count {
+  font-size: 0.78rem;
+  color: #64748B;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+/* Born Good Clean Product Card */
+.borngood-card {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid #E8EEF5;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  position: relative;
+}
+
+.borngood-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--brand-sage, #00B189);
+  box-shadow: 0 20px 36px -8px rgba(0, 177, 137, 0.16), 0 0 0 1px rgba(0, 177, 137, 0.25);
+}
+
+.borngood-card-stage {
+  background: linear-gradient(180deg, #FAF9F6 0%, #FFFFFF 100%);
+  padding: 24px 16px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  min-height: 220px;
+}
+
+.borngood-card-stage img {
+  max-height: 180px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 16px rgba(15, 23, 42, 0.1));
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.borngood-card:hover .borngood-card-stage img {
+  transform: scale(1.06);
+}
+
+/* Born Good Card Badges */
+.card-active-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border-radius: 9999px;
+  padding: 3px 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #0F766E;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.card-refill-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background-color: #EFF6FF;
+  border: 1px solid #BFDBFE;
+  border-radius: 9999px;
+  padding: 3px 9px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #1D4ED8;
+}
+
+/* BornGood Inspired Wave Footer */
+.borngood-footer-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1.2fr;
+  gap: 36px;
+  align-items: center;
+}
+
+@media (max-width: 868px) {
+  .borngood-footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 32px;
+  }
+  .borngood-footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .borngood-footer-right {
+    align-items: center !important;
+    text-align: center !important;
+  }
+  .borngood-footer-right button {
+    text-align: center !important;
+  }
+}
+
+

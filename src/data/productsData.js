@@ -7,11 +7,19 @@ export const PRODUCTS = [
     categorySlug: 'bathroom',
     categoryLabel: 'Bathroom Care',
     shortDesc: 'Deep-action thick formula that dissolves stubborn limescale, removes hard-water scaling, and delivers long-lasting freshness.',
+    heroTagline: 'Powerful cleaning for a germ-free and fresh toilet.',
+    heroDesc: 'Clean Go Toilet Cleaner removes tough stains, limescale and keeps your toilet fresh and hygienic. Suitable for homes, offices, hotels and institutions.',
+    iconBadges: [
+      { label: 'Removes tough stains', icon: 'Sparkles' },
+      { label: 'Kills germs', icon: 'ShieldCheck' },
+      { label: 'Long lasting freshness', icon: 'Clock' },
+      { label: 'Suitable for regular use', icon: 'CheckCircle2' },
+    ],
     image: '/images/products/cleango-toilet-cleaner.jpg',
     liquidColor: '#1E40AF',
     liquidGradient: 'linear-gradient(180deg, #3B82F6 0%, #1E3A8A 100%)',
     volume: '500ml, 1L & 5L Can',
-    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
+    availableSizes: ['500 ml', '1 Ltr', '5 Ltr'],
     scent: 'Ocean Fresh Disinfectant',
     scents: ['Ocean Fresh', 'Original Pine'],
     tagline: 'Powerful Cleaning For a Healthier Home',
@@ -44,11 +52,19 @@ export const PRODUCTS = [
     categorySlug: 'other-cleaning',
     categoryLabel: 'Glass & Shiny Surfaces',
     shortDesc: 'Professional streak-free glass and mirror cleaner that dissolves fingerprints, film, and dust for sparkling optical clarity.',
+    heroTagline: 'Professional streak-free shine for glass and mirrors.',
+    heroDesc: 'Clean Go Glass Cleaner dissolves oily fingerprints, dust, and smudges for crystal optical clarity. Suitable for glass facades, tabletops, vehicle windshields and display counters.',
+    iconBadges: [
+      { label: '100% streak-free finish', icon: 'Sparkles' },
+      { label: 'Dissolves oily smudges', icon: 'ShieldCheck' },
+      { label: 'Quick-drying action', icon: 'Clock' },
+      { label: 'Suitable for mirrors & glass', icon: 'CheckCircle2' },
+    ],
     image: '/images/products/cleango-glass-cleaner.jpg',
     liquidColor: '#0EA5E9',
     liquidGradient: 'linear-gradient(180deg, #38BDF8 0%, #0369A1 100%)',
     volume: '500ml, 1L & 5L Can',
-    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
+    availableSizes: ['500 ml', '1 Ltr', '5 Ltr'],
     scent: 'Crisp Ocean Mist',
     scents: ['Ocean Mist', 'Crystal Clear'],
     tagline: 'Powerful Cleaning For a Healthier Home',
@@ -80,11 +96,19 @@ export const PRODUCTS = [
     categorySlug: 'bathroom',
     categoryLabel: 'Everyday Hand Hygiene',
     shortDesc: 'Moisturizing antibacterial hand wash formulated to be soft on hands yet tough on germs with crisp green apple fragrance.',
+    heroTagline: 'Soft on hands, tough on germs with rich micro-foam.',
+    heroDesc: 'Clean Go Hand Wash creates a rich, velvety micro-foam that cuts grease and food odors quickly. pH-balanced to keep hands nourished even after frequent daily washing.',
+    iconBadges: [
+      { label: 'Cuts grease & dirt', icon: 'Sparkles' },
+      { label: 'Kills 99.9% germs', icon: 'ShieldCheck' },
+      { label: 'Rich velvety micro-foam', icon: 'Droplets' },
+      { label: 'Suitable for daily hand care', icon: 'CheckCircle2' },
+    ],
     image: '/images/products/cleango-hand-wash.jpg',
     liquidColor: '#22C55E',
     liquidGradient: 'linear-gradient(180deg, #4ADE80 0%, #15803D 100%)',
     volume: '500ml, 1L & 5L Can',
-    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
+    availableSizes: ['500 ml', '1 Ltr', '5 Ltr'],
     scent: 'Fresh Green Apple Fragrance',
     scents: ['Fresh Green Apple', 'Soft Rose'],
     tagline: 'Soft on Hands, Tough on Germs',
@@ -116,11 +140,19 @@ export const PRODUCTS = [
     categorySlug: 'kitchen',
     categoryLabel: 'Dishwashing Solutions',
     shortDesc: 'Powerful grease-cutting dishwash formulation with fresh lemon fragrance and rapid-rinse rich active foam.',
+    heroTagline: 'Powerful grease-cutting action for spotless utensils.',
+    heroDesc: 'Clean Go Dish Wash Liquid dissolves burnt oil, heavy ghee, and tough curry stains effortlessly. Leaves glassware and utensils squeaky clean with zero white chalky residue.',
+    iconBadges: [
+      { label: 'Removes tough grease', icon: 'Flame' },
+      { label: 'Rich foam easy rinse', icon: 'Droplets' },
+      { label: 'Zero chalky residue', icon: 'Sparkles' },
+      { label: 'Suitable for daily cookware', icon: 'CheckCircle2' },
+    ],
     image: '/images/products/cleango-dishwash-liquid.jpg',
     liquidColor: '#EAB308',
     liquidGradient: 'linear-gradient(180deg, #FDE047 0%, #CA8A04 100%)',
     volume: '500ml, 1L & 5L Can',
-    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
+    availableSizes: ['500 ml', '1 Ltr', '5 Ltr'],
     scent: 'Fresh Lemon Citrus',
     scents: ['Fresh Lemon', 'Active Lime'],
     tagline: 'Powerful Cleaning For a Healthier Home',
@@ -152,11 +184,19 @@ export const PRODUCTS = [
     categorySlug: 'floor-care',
     categoryLabel: 'Everyday Floor Care',
     shortDesc: 'Deep-cleaning surface disinfectant that cuts sticky stains and delivers a shiny, streak-free finish with lingering rose fragrance.',
+    heroTagline: 'Deep surface cleaning with lingering rose freshness.',
+    heroDesc: 'Clean Go Floor Cleaner cuts daily dirt, mud tracks, and sticky spills to leave a shiny streak-free finish. Safe for polished marble, granite, ceramic tiles, and epoxy flooring.',
+    iconBadges: [
+      { label: 'Removes dirt & stains', icon: 'Sparkles' },
+      { label: 'Streak-free shiny finish', icon: 'ShieldCheck' },
+      { label: 'Long-lasting rose freshness', icon: 'Clock' },
+      { label: 'Safe for polished marble', icon: 'CheckCircle2' },
+    ],
     image: '/images/products/cleango-floor-cleaner.jpg',
     liquidColor: '#EC4899',
     liquidGradient: 'linear-gradient(180deg, #F472B6 0%, #BE185D 100%)',
     volume: '500ml, 1L & 5L Can',
-    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
+    availableSizes: ['500 ml', '1 Ltr', '5 Ltr'],
     scent: 'Fresh Rose Fragrance',
     scents: ['Floral Rose', 'Citrus Lemon', 'Pine Fresh'],
     tagline: 'Powerful Cleaning For a Healthier Home',
@@ -188,11 +228,19 @@ export const PRODUCTS = [
     categorySlug: 'floor-care',
     categoryLabel: 'Floor & Surface Disinfection',
     shortDesc: 'High-grade white phenyle disinfectant emulsion delivering potent sanitization, natural insect deterrence, and pleasant floral aroma.',
+    heroTagline: 'Potent disinfection and natural insect deterrence with pine freshness.',
+    heroDesc: 'Clean Go White Phenyle is a dense milky white active emulsion that eliminates foul restroom odors and sanitizes high-footfall areas. Suitable for hospitals, schools, lobbies and commercial corridors.',
+    iconBadges: [
+      { label: 'Heavy-duty disinfection', icon: 'ShieldCheck' },
+      { label: 'Eliminates foul odors', icon: 'Clock' },
+      { label: 'Natural insect deterrence', icon: 'Sparkles' },
+      { label: 'Economical corridor mopping', icon: 'CheckCircle2' },
+    ],
     image: '/images/products/cleango-white-phenyle.jpg',
     liquidColor: '#FFFFFF',
     liquidGradient: 'linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%)',
     volume: '500ml, 1L & 5L Can',
-    availableSizes: ['500 ml', '1 Litre', '5 Litre'],
+    availableSizes: ['500 ml', '1 Ltr', '5 Ltr'],
     scent: 'Floral Jasmine & Pine Fresh',
     scents: ['Floral Jasmine', 'Pine Fresh'],
     tagline: 'Powerful Disinfectant & Odor Eliminator',
@@ -215,6 +263,124 @@ export const PRODUCTS = [
     commercialPacks: ['5 Litre'],
     retailPacks: ['500 ml', '1 Litre'],
     targetAudience: 'Hospitals, Schools, Public Facilities, Industrial Floors & Residences',
+    rating: 4.85,
+    reviewCount: 128,
+    activeBadge: 'Milky Pine Disinfectant',
+    transparencyPill: 'Insect Deterrence',
+    commercialAdvantage: 'Economical 5L can for hospitals, schools, and commercial corridors',
+  },
+];
+
+// Add rating & active badges to all products in PRODUCTS
+PRODUCTS[0].rating = 4.92;
+PRODUCTS[0].reviewCount = 156;
+PRODUCTS[0].activeBadge = 'Clinging Acid Descaler';
+PRODUCTS[0].transparencyPill = 'Kills 99.9% Germs';
+PRODUCTS[0].commercialAdvantage = 'Heavy-duty 5L can for institutional restrooms & facility care';
+
+PRODUCTS[1].rating = 4.88;
+PRODUCTS[1].reviewCount = 98;
+PRODUCTS[1].activeBadge = '100% Streak-Free Clarity';
+PRODUCTS[1].transparencyPill = 'Sparkling Optical Clean';
+PRODUCTS[1].commercialAdvantage = '5L commercial pack for showrooms, glass facades & maintenance';
+
+PRODUCTS[2].rating = 4.96;
+PRODUCTS[2].reviewCount = 184;
+PRODUCTS[2].activeBadge = 'Rich Foaming Hand Care';
+PRODUCTS[2].transparencyPill = 'Green Apple Fragrance';
+PRODUCTS[2].commercialAdvantage = '5L institutional can for corporate washrooms, clinics & hotels';
+
+PRODUCTS[3].rating = 4.91;
+PRODUCTS[3].reviewCount = 214;
+PRODUCTS[3].activeBadge = 'Heavy Grease-Cut Active';
+PRODUCTS[3].transparencyPill = 'Rich Foam Easy Rinse';
+PRODUCTS[3].commercialAdvantage = 'High-yield 5L can for commercial kitchens, canteens & homes';
+
+PRODUCTS[4].rating = 4.89;
+PRODUCTS[4].reviewCount = 172;
+PRODUCTS[4].activeBadge = 'Triple-Action Disinfectant';
+PRODUCTS[4].transparencyPill = 'Shiny Streak-Free Finish';
+PRODUCTS[4].commercialAdvantage = 'Cost-effective 5L bulk can for housing societies, offices & large lobbies';
+
+export const CIRCLE_CATEGORIES = [
+  { id: 'all', label: 'All Formulations', icon: 'Sparkles', color: '#168DC0', bg: '#E0F2FE' },
+  { id: 'bathroom', label: 'Bathroom Care', icon: 'Droplets', color: '#0284C7', bg: '#E0F2FE' },
+  { id: 'kitchen', label: 'Kitchen & Cookware', icon: 'Flame', color: '#D97706', bg: '#FEF3C7' },
+  { id: 'floor-care', label: 'Floor & Disinfectant', icon: 'ShieldCheck', color: '#00B189', bg: '#E6F8F3' },
+  { id: 'handwash', label: 'Hand Hygiene', icon: 'HeartHandshake', color: '#10B981', bg: '#ECFDF5' },
+  { id: 'bulk-commercial', label: '5L Bulk Cans', icon: 'PackageCheck', color: '#1E3A8A', bg: '#EFF6FF' },
+];
+
+export const TRUST_RIBBON_ITEMS = [
+  { icon: 'ShieldCheck', label: 'Kills 99.9% Germs' },
+  { icon: 'Sparkles', label: 'High-Active Cleaning Action' },
+  { icon: 'Flame', label: 'Removes Grease & Tough Stains' },
+  { icon: 'Droplets', label: 'Long-Lasting Fresh Fragrance' },
+  { icon: 'PackageCheck', label: 'Sturdy 5L Commercial Packs' },
+];
+
+export const TRANSPARENCY_PILLARS = [
+  {
+    title: 'High-Active Concentration',
+    subtitle: 'Dense formulation that cuts grease & stains fast',
+    desc: 'Engineered with high surfactant active matter to ensure every drop cleans thoroughly. Rapidly breaks down stubborn cooking oils, yellow restroom scaling, and dried floor grime.',
+    icon: 'Zap',
+    badge: '100% Active Action',
+    tag: 'High Performance',
+  },
+  {
+    title: 'Kills 99.9% Germs & Disinfects',
+    subtitle: 'Targeted hygiene for restrooms, floors & facilities',
+    desc: 'Formulated to disinfect everyday high-touch surfaces, eliminating foul restroom odor and bacterial buildup in homes, commercial corridors, clinics, and offices.',
+    icon: 'ShieldCheck',
+    badge: 'Sanitary Hygiene',
+    tag: 'Disinfection',
+  },
+  {
+    title: 'Surface-Safe Formula',
+    subtitle: 'Tested on marble, vitrified tiles, glass & utensils',
+    desc: 'Designed to lift stubborn grime and hard-water deposits without dulling, etching, or scratching polished Italian marble, ceramic sanitaryware, or mirrors.',
+    icon: 'Shield',
+    badge: 'Surface Integrity',
+    tag: 'Surface Care',
+  },
+  {
+    title: 'Heavy-Duty 5L Commercial Packs',
+    subtitle: 'Direct manufacturer value for high-volume users',
+    desc: 'Supplied directly in robust 5 Litre HDPE cans for hotels, restaurants, corporate offices, hospitals, banquets, and households buying in bulk at factory pricing.',
+    icon: 'PackageCheck',
+    badge: 'Commercial Grade',
+    tag: '5L Bulk Supply',
+  },
+];
+
+export const TESTIMONIALS = [
+  {
+    id: 1,
+    name: 'Pooja Sharma',
+    role: 'Homemaker',
+    location: 'Vasundhara, Ghaziabad',
+    rating: 5,
+    product: 'Clean Go Floor Cleaner & Dishwash',
+    text: 'Clean Go dishwash cuts greasy ghee and oil effortlessly without leaving any white chalky marks. The floor cleaner keeps our marble shiny with a lingering fresh rose fragrance.',
+  },
+  {
+    id: 2,
+    name: 'Rajesh Mehra',
+    role: 'Operations Head',
+    location: 'Grand Imperial Banquets, Noida',
+    rating: 5,
+    product: 'Clean Go 5L Commercial Lineup',
+    text: 'We procure 5L commercial cans of Clean Go glass cleaner and toilet cleaner every month. The descaling strength on banquet restrooms is exceptional and factory-direct supply is reliable.',
+  },
+  {
+    id: 3,
+    name: 'Dr. Ananya Roy',
+    role: 'Clinic Director',
+    location: 'Indirapuram Healthcare, Ghaziabad',
+    rating: 5,
+    product: 'Clean Go Hand Wash & White Phenyle',
+    text: 'The hand wash is pleasant with its green apple fragrance and creates rich foam without drying the skin. The white phenyle keeps our facility corridors clean and properly disinfected.',
   },
 ];
 
@@ -315,3 +481,4 @@ export const COMPANY_INFO = {
     'https://script.google.com/macros/s/AKfycbz70kXjNr4huyy3tahizeoAqsJ7wa1DZ-B_j1tGvRTzjmDM5pUUqy5KrJYiOrdUeVbM/exec',
   workingHours: 'Monday - Saturday: 9:00 AM - 7:30 PM',
 };
+

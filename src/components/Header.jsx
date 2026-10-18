@@ -6,6 +6,7 @@ import { COMPANY_INFO } from '../data/productsData';
 export default function Header({
   currentPage,
   onNavigate,
+  onOpenCatalogModal,
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -23,17 +24,50 @@ export default function Header({
     window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
+  const whatsappUrl = `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+    'Hello KCN Udyog, I am inquiring about Clean Go products from kcnudyog.com.'
+  )}`;
+
   return (
     <header
       style={{
         backgroundColor: '#FFFFFF',
-        borderBottom: '1px solid #E2E8F0',
+        borderBottom: '1px solid #E8EEF5',
         position: 'sticky',
         top: 0,
         zIndex: 50,
-        boxShadow: '0 1px 3px 0 rgba(15, 23, 42, 0.04)',
+        boxShadow: '0 2px 8px 0 rgba(15, 23, 42, 0.04)',
       }}
     >
+      {/* Top Brand Value Announcement Bar */}
+      <div
+        style={{
+          backgroundColor: '#0F2444',
+          color: '#FFFFFF',
+          fontSize: '0.78rem',
+          fontWeight: 600,
+          letterSpacing: '0.02em',
+          padding: '7px 12px',
+          textAlign: 'center',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '10px',
+          flexWrap: 'wrap',
+          borderBottom: '1px solid rgba(245, 158, 11, 0.2)',
+        }}
+      >
+        <span>⚡ High-Active Formulations</span>
+        <span style={{ color: '#F59E0B' }}>•</span>
+        <span>Removes Tough Grease & Stains</span>
+        <span style={{ color: '#F59E0B' }}>•</span>
+        <span>Kills 99.9% Germs</span>
+        <span style={{ color: '#F59E0B' }}>•</span>
+        <span>Available in 5L Commercial Cans</span>
+        <span style={{ color: '#F59E0B' }}>•</span>
+        <span style={{ color: '#FCD34D', fontWeight: 700 }}>Direct Manufacturer Supply</span>
+      </div>
+
       <div
         className="container"
         style={{
@@ -67,7 +101,7 @@ export default function Header({
           style={{
             display: 'flex',
             alignItems: 'center',
-            gap: '6px',
+            gap: '4px',
           }}
         >
           {navLinks.map((link) => {
@@ -82,18 +116,18 @@ export default function Header({
                   background: 'none',
                   border: 'none',
                   padding: '8px 14px',
-                  borderRadius: '8px',
-                  fontSize: '0.9rem',
+                  borderRadius: '9999px',
+                  fontSize: '0.88rem',
                   fontWeight: isActive ? 700 : 600,
-                  color: isActive ? '#168DC0' : '#334155',
-                  backgroundColor: isActive ? '#F0F9FF' : 'transparent',
+                  color: isActive ? '#00B189' : '#334155',
+                  backgroundColor: isActive ? '#E6F8F3' : 'transparent',
                   cursor: 'pointer',
                   transition: 'all 0.15s ease',
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
-                    e.currentTarget.style.color = '#168DC0';
-                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.color = '#00B189';
+                    e.currentTarget.style.backgroundColor = '#FAF9F6';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -109,6 +143,49 @@ export default function Header({
           })}
         </nav>
 
+        {/* Desktop Header Actions */}
+        <div
+          className="header-actions"
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+          }}
+        >
+          {onOpenCatalogModal && (
+            <button
+              onClick={onOpenCatalogModal}
+              className="btn btn-outline"
+              style={{
+                padding: '7px 14px',
+                fontSize: '0.82rem',
+                fontWeight: 700,
+                borderRadius: '9999px',
+                borderColor: '#CBD5E1',
+                color: '#16195E',
+              }}
+            >
+              Get Price List
+            </button>
+          )}
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn-sage"
+            style={{
+              padding: '7px 15px',
+              fontSize: '0.82rem',
+              fontWeight: 700,
+              borderRadius: '9999px',
+              textDecoration: 'none',
+            }}
+          >
+            WhatsApp
+          </a>
+        </div>
+
         {/* Mobile Hamburger Button */}
         <button
           className="mobile-menu-btn"
@@ -118,7 +195,7 @@ export default function Header({
             background: 'none',
             border: 'none',
             padding: '8px',
-            color: '#2B176F',
+            color: '#16195E',
             cursor: 'pointer',
             display: 'none', // Controlled by CSS media queries
           }}

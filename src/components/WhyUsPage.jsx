@@ -23,22 +23,22 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
   )}`;
 
   return (
-    <div style={{ backgroundColor: '#F8FAFC', minHeight: '80vh', paddingBottom: '80px' }}>
+    <div style={{ backgroundColor: '#FAF9F6', minHeight: '80vh', paddingBottom: '80px' }}>
       {/* Header Banner */}
       <section
         style={{
           backgroundColor: '#FFFFFF',
-          borderBottom: '1px solid #E2E8F0',
-          paddingTop: 'clamp(36px, 6vw, 64px)',
-          paddingBottom: 'clamp(36px, 6vw, 64px)',
+          borderBottom: '1px solid #E8EEF5',
+          paddingTop: 'clamp(40px, 6vw, 68px)',
+          paddingBottom: 'clamp(36px, 5vw, 56px)',
         }}
       >
         <div className="container" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}>
           <h1
             style={{
-              fontSize: 'clamp(2rem, 4.2vw, 3rem)',
+              fontSize: 'clamp(2.2rem, 4.4vw, 3.2rem)',
               fontWeight: 800,
-              color: '#2B176F',
+              color: '#16195E',
               lineHeight: 1.15,
               letterSpacing: '-0.025em',
               marginBottom: '14px',
@@ -62,12 +62,12 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
           <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
             <button
               onClick={onOpenCatalogModal}
-              className="btn btn-navy"
+              className="btn btn-sage"
               style={{
-                padding: '12px 22px',
-                fontSize: '0.92rem',
+                padding: '12px 24px',
+                fontSize: '0.94rem',
                 fontWeight: 700,
-                borderRadius: '10px',
+                borderRadius: '9999px',
               }}
             >
               <FileText size={16} />
@@ -78,12 +78,12 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
               onClick={onNavigateToContact}
               className="btn btn-outline"
               style={{
-                padding: '12px 22px',
-                fontSize: '0.92rem',
+                padding: '12px 24px',
+                fontSize: '0.94rem',
                 fontWeight: 700,
-                borderRadius: '10px',
+                borderRadius: '9999px',
                 borderColor: '#CBD5E1',
-                color: '#2B176F',
+                color: '#16195E',
               }}
             >
               <span>Contact Facility Team</span>
