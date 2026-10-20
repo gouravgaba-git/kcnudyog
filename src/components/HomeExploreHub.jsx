@@ -283,14 +283,6 @@ export default function HomeExploreHub({ onNavigate, onOpenCatalogModal }) {
           </div>
 
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-            <button
-              onClick={onOpenCatalogModal}
-              className="btn btn-navy"
-              style={{ padding: '10px 18px', fontSize: '0.88rem' }}
-            >
-              <span>Get Price List</span>
-            </button>
-
             <a
               href={whatsappUrl}
               target="_blank"

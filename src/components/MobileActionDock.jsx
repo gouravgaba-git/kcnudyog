@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, Package, Phone, MessageCircle, FileText } from 'lucide-react';
+import { Home, Package, Phone, MessageCircle } from 'lucide-react';
 import { COMPANY_INFO } from '../data/productsData';
 
 export default function MobileActionDock({
@@ -112,26 +112,6 @@ export default function MobileActionDock({
         <span>WhatsApp</span>
       </a>
 
-      {/* Price List */}
-      <button
-        onClick={onOpenCatalogModal}
-        style={{
-          background: 'none',
-          border: 'none',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '2px',
-          color: '#2B176F',
-          fontSize: '0.68rem',
-          fontWeight: 700,
-          cursor: 'pointer',
-          padding: '4px 6px',
-        }}
-      >
-        <FileText size={19} color="#2B176F" />
-        <span>Price List</span>
-      </button>
 
       {/* Call */}
       <a

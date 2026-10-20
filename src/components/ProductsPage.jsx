@@ -51,19 +51,6 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
             High-active cleaning formulations engineered to cut heavy grease, remove stubborn stains, and
             kill 99.9% germs. Available in retail packs and heavy-duty 5L commercial cans.
           </p>
-
-          <button
-            onClick={onOpenCatalogModal}
-            className="btn btn-sage"
-            style={{
-              padding: '12px 26px',
-              fontSize: '0.94rem',
-              fontWeight: 700,
-              borderRadius: '9999px',
-            }}
-          >
-            <span>Request Full Wholesale Price List & Catalog</span>
-          </button>
         </div>
       </section>
 
@@ -354,19 +341,6 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
           </div>
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <button
-              onClick={onOpenCatalogModal}
-              className="btn btn-sage"
-              style={{
-                padding: '12px 24px',
-                fontSize: '0.92rem',
-                fontWeight: 700,
-                borderRadius: '12px',
-              }}
-            >
-              <span>Get Wholesale Price List</span>
-            </button>
-
             <a
               href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
                 'Hello Nakul, I want to inquire about B2B / wholesale bulk procurement for Clean Go products.'

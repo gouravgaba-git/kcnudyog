@@ -69,10 +69,10 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
     selectedCategory === 'all'
       ? PRODUCTS
       : selectedCategory === 'bulk-commercial'
-      ? PRODUCTS
-      : selectedCategory === 'handwash'
-      ? PRODUCTS.filter((p) => p.id === 'handwash')
-      : PRODUCTS.filter((p) => p.categorySlug === selectedCategory);
+        ? PRODUCTS
+        : selectedCategory === 'handwash'
+          ? PRODUCTS.filter((p) => p.id === 'handwash')
+          : PRODUCTS.filter((p) => p.categorySlug === selectedCategory);
 
   const whatsappGeneralUrl = `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
     'Hello KCN Udyog, I am interested in exploring your Clean Go cleaning products line.'
@@ -124,199 +124,162 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
         </div>
       </section>
 
-      {/* 2. Hero Section - Born Good Warmth & Clean Typography */}
+      {/* 2. Hero Section - Clean Split Layout */}
       <section
         style={{
           position: 'relative',
-          paddingTop: 'clamp(40px, 6vw, 76px)',
-          paddingBottom: 'clamp(48px, 7vw, 84px)',
-          background: 'linear-gradient(180deg, #FAF9F6 0%, #FFFFFF 100%)',
+          paddingTop: 'clamp(36px, 5vw, 60px)',
+          paddingBottom: 'clamp(40px, 6vw, 68px)',
+          backgroundColor: '#FFFFFF',
         }}
       >
-        {/* Soft Ambient Pastel Glows */}
-        <div
-          style={{
-            position: 'absolute',
-            top: '0',
-            right: '8%',
-            width: '450px',
-            height: '450px',
-            background: 'radial-gradient(circle, rgba(0, 177, 137, 0.08) 0%, rgba(250, 249, 246, 0) 70%)',
-            borderRadius: '50%',
-            pointerEvents: 'none',
-          }}
-        />
-        <div
-          style={{
-            position: 'absolute',
-            bottom: '10%',
-            left: '5%',
-            width: '400px',
-            height: '400px',
-            background: 'radial-gradient(circle, rgba(142, 185, 229, 0.1) 0%, rgba(250, 249, 246, 0) 70%)',
-            borderRadius: '50%',
-            pointerEvents: 'none',
-          }}
-        />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="hero-banner-split">
+            {/* Left Column: Brand Statement & Actions */}
+            <div className="hero-banner-content">
+              <h1
+                style={{
+                  fontSize: 'clamp(1.9rem, 2.9vw, 2.85rem)',
+                  fontWeight: 900,
+                  lineHeight: 1.06,
+                  letterSpacing: '-0.025em',
+                  margin: '0 0 10px',
+                }}
+              >
+                <span style={{ color: '#0F2444', display: 'block' }}>
+                  CLEAN SPACES.
+                </span>
+                <span style={{ color: '#F59E0B', display: 'block' }}>
+                  BETTER LIVING.
+                </span>
+              </h1>
 
-        <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-          {/* Main Headline from Brand Identity */}
-          <h1
-            style={{
-              fontSize: 'clamp(2.4rem, 5.8vw, 4.4rem)',
-              fontWeight: 900,
-              lineHeight: 1.1,
-              letterSpacing: '-0.025em',
-              maxWidth: '920px',
-              margin: '0 auto 16px',
-            }}
-          >
-            <span style={{ color: '#0F2444', display: 'block' }}>
-              CLEAN SPACES.
-            </span>
-            <span style={{ color: '#F59E0B', display: 'block' }}>
-              BETTER LIVING.
-            </span>
-          </h1>
+              <p
+                style={{
+                  fontSize: 'clamp(0.92rem, 1.15vw, 1.06rem)',
+                  fontWeight: 500,
+                  color: '#334155',
+                  lineHeight: 1.45,
+                  maxWidth: '440px',
+                  margin: '0 0 8px',
+                }}
+              >
+                Reliable cleaning solutions for homes, workplaces and institutions.
+              </p>
 
-          {/* Subtitle */}
-          <p
-            style={{
-              fontSize: 'clamp(1.05rem, 1.8vw, 1.3rem)',
-              fontWeight: 500,
-              color: '#1E293B',
-              lineHeight: 1.5,
-              maxWidth: '680px',
-              margin: '0 auto 10px',
-            }}
-          >
-            Reliable cleaning solutions for homes, workplaces and institutions.
-          </p>
+              <div
+                style={{
+                  display: 'inline-flex',
+                  flexDirection: 'column',
+                  alignItems: 'flex-start',
+                  marginBottom: '20px',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: "'Caveat', cursive, sans-serif",
+                    fontSize: 'clamp(1.5rem, 2.1vw, 1.95rem)',
+                    fontWeight: 700,
+                    color: '#0F2444',
+                    fontStyle: 'italic',
+                    letterSpacing: '0.01em',
+                    lineHeight: 1.1,
+                  }}
+                >
+                  Har jagah saaf-safai.
+                </span>
+                <svg
+                  width="155"
+                  height="12"
+                  viewBox="0 0 170 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  style={{ marginTop: '-2px' }}
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 10C50 4 120 4 166 8"
+                    stroke="#F59E0B"
+                    strokeWidth="3.5"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              </div>
 
-          {/* Brand Tagline Accent with curved underline */}
-          <div
-            style={{
-              display: 'inline-flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              marginBottom: '32px',
-            }}
-          >
-            <span
-              style={{
-                fontFamily: "'Caveat', cursive, sans-serif",
-                fontSize: 'clamp(1.7rem, 2.5vw, 2.2rem)',
-                fontWeight: 700,
-                color: '#0F2444',
-                fontStyle: 'italic',
-                letterSpacing: '0.01em',
-                lineHeight: 1.1,
-              }}
-            >
-              Har jagah saaf-safai.
-            </span>
-            <svg
-              width="170"
-              height="14"
-              viewBox="0 0 170 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ marginTop: '-2px' }}
-              aria-hidden="true"
-            >
-              <path
-                d="M4 10C50 4 120 4 166 8"
-                stroke="#F59E0B"
-                strokeWidth="3.5"
-                strokeLinecap="round"
-              />
-            </svg>
-          </div>
+              {/* Action Buttons */}
+              <div
+                className="hero-banner-ctas"
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  flexWrap: 'wrap',
+                }}
+              >
+                <button
+                  onClick={onExploreProducts}
+                  className="hero-btn-primary"
+                  id="hero-explore-products-btn"
+                >
+                  <span>Explore Products</span>
+                  <ArrowRight size={17} />
+                </button>
 
-          {/* Hero CTAs */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '12px',
-              flexWrap: 'wrap',
-              marginBottom: '36px',
-            }}
-          >
-            <button
-              onClick={onExploreProducts}
-              className="btn btn-sage"
-              style={{
-                padding: '14px 28px',
-                fontSize: '1rem',
-                fontWeight: 700,
-                borderRadius: '9999px',
-              }}
-            >
-              <span>Explore Formulations</span>
-              <ArrowRight size={18} />
-            </button>
-
-            <button
-              onClick={onOpenCatalogModal}
-              className="btn btn-outline"
-              style={{
-                padding: '14px 24px',
-                fontSize: '1rem',
-                fontWeight: 700,
-                borderRadius: '9999px',
-                borderColor: '#CBD5E1',
-                color: '#16195E',
-                backgroundColor: '#FFFFFF',
-              }}
-            >
-              <FileText size={17} color="#16195E" />
-              <span>Get Price List & Catalogue</span>
-            </button>
-
-            <a
-              href={whatsappGeneralUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-whatsapp"
-              style={{
-                padding: '14px 24px',
-                fontSize: '1rem',
-                fontWeight: 700,
-                borderRadius: '9999px',
-                textDecoration: 'none',
-              }}
-            >
-              <MessageCircle size={18} />
-              <span>WhatsApp Us</span>
-            </a>
-          </div>
-
-          {/* Trust Guarantees */}
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 'clamp(16px, 3vw, 36px)',
-              flexWrap: 'wrap',
-              fontSize: '0.88rem',
-              color: '#475569',
-              fontWeight: 600,
-            }}
-          >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <PackageCheck size={16} color="#0284C7" />
-              <span>Available in 500ml & 5L Commercial Cans</span>
+                <a
+                  href={`https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
+                    'Hello KCN Udyog, I am interested in Clean Go cleaning products.'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hero-btn-enquiry"
+                  id="hero-bulk-enquiry-btn"
+                >
+                  <MessageCircle size={17} color="#0F2444" />
+                  <span>Bulk Enquiry</span>
+                </a>
+              </div>
             </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <ShieldCheck size={16} color="#0284C7" />
-              <span>Direct Manufacturer Supply</span>
-            </div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-              <Truck size={16} color="#0284C7" />
-              <span>Supply Across Delhi NCR & Pan India</span>
+
+            {/* Right Column: 6 Product Images Placed Closely Side-by-Side */}
+            <div className="hero-products-showcase">
+              <div className="hero-products-row">
+                <img
+                  src="/images/products-tight/cleango-toilet-cleaner.jpg"
+                  alt="Clean Go Toilet Cleaner"
+                  className="hero-product-bottle"
+                  onClick={onExploreProducts}
+                />
+                <img
+                  src="/images/products-tight/cleango-floor-cleaner.jpg"
+                  alt="Clean Go Floor Cleaner"
+                  className="hero-product-bottle"
+                  onClick={onExploreProducts}
+                />
+                <img
+                  src="/images/products-tight/cleango-white-phenyle.jpg"
+                  alt="Clean Go White Phenyle"
+                  className="hero-product-bottle"
+                  onClick={onExploreProducts}
+                />
+                <img
+                  src="/images/products-tight/cleango-glass-cleaner.jpg"
+                  alt="Clean Go Glass Cleaner"
+                  className="hero-product-bottle"
+                  onClick={onExploreProducts}
+                />
+                <img
+                  src="/images/products-tight/cleango-hand-wash.jpg"
+                  alt="Clean Go Hand Wash"
+                  className="hero-product-bottle"
+                  onClick={onExploreProducts}
+                />
+                <img
+                  src="/images/products-tight/cleango-dishwash-liquid.jpg"
+                  alt="Clean Go Dish Wash Liquid"
+                  className="hero-product-bottle"
+                  onClick={onExploreProducts}
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -589,19 +552,6 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
             </div>
 
             <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
-              <button
-                onClick={onOpenCatalogModal}
-                className="btn btn-navy"
-                style={{
-                  padding: '9px 18px',
-                  fontSize: '0.86rem',
-                  fontWeight: 700,
-                  borderRadius: '10px',
-                }}
-              >
-                Request Price List
-              </button>
-
               <button
                 onClick={onExploreProducts}
                 className="btn btn-sage"

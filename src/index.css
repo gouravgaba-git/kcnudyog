@@ -6,6 +6,7 @@
     opacity: 0;
     transform: scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -17,6 +18,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -27,6 +29,7 @@
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -36,6 +39,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -195,15 +199,15 @@
   .desktop-nav {
     display: none !important;
   }
-  
+
   .mobile-menu-btn {
     display: flex !important;
   }
-  
+
   .header-actions {
     display: none !important;
   }
-  
+
   .mobile-action-dock {
     display: flex !important;
   }
@@ -217,7 +221,7 @@
   .mobile-menu-btn {
     display: none !important;
   }
-  
+
   .mobile-action-dock {
     display: none !important;
   }
@@ -257,13 +261,17 @@
 }
 
 /* Form element base styling */
-input, select, textarea {
+input,
+select,
+textarea {
   outline: none;
   transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   font-family: inherit;
 }
 
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
   border-color: var(--brand-blue, #168DC0) !important;
   box-shadow: 0 0 0 3px rgba(22, 141, 192, 0.15);
 }
@@ -485,19 +493,155 @@ input:focus, select:focus, textarea:focus {
     text-align: center;
     gap: 32px;
   }
+
   .borngood-footer-left {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
   }
+
   .borngood-footer-right {
     align-items: center !important;
     text-align: center !important;
   }
+
   .borngood-footer-right button {
     text-align: center !important;
   }
 }
 
+/* Clean Hero Split Layout & Product Row */
+.hero-banner-split {
+  display: grid;
+  grid-template-columns: 0.82fr 1.45fr;
+  align-items: center;
+  gap: clamp(20px, 3.5vw, 48px);
+  position: relative;
+  z-index: 2;
+}
 
+.hero-banner-content {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-products-showcase {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-products-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0;
+  width: 100%;
+}
+
+.hero-product-bottle {
+  width: calc(100% / 6);
+  height: auto;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.22s ease;
+  flex-shrink: 0;
+  display: block;
+}
+
+.hero-product-bottle:hover {
+  transform: translateY(-8px) scale(1.04);
+  z-index: 5;
+}
+
+.hero-composite-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  cursor: pointer;
+  transition: transform 0.22s ease;
+}
+
+.hero-composite-img:hover {
+  transform: translateY(-4px);
+}
+
+.hero-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 26px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: #0F2444;
+  color: #FFFFFF;
+  border: 2px solid #0F2444;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hero-btn-primary:hover {
+  background-color: #16325C;
+  border-color: #16325C;
+  transform: translateY(-2px);
+}
+
+.hero-btn-enquiry {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  font-size: 0.98rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  background-color: #FFFFFF;
+  color: #0F2444;
+  border: 2px solid #F59E0B;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.hero-btn-enquiry:hover {
+  background-color: #FFFBEB;
+  border-color: #D97706;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 991px) {
+  .hero-banner-split {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 28px;
+  }
+
+  .hero-banner-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-banner-ctas {
+    justify-content: center !important;
+  }
+
+  .hero-products-row {
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .hero-product-bottle {
+    width: calc(100% / 6);
+    max-height: 140px;
+  }
+}

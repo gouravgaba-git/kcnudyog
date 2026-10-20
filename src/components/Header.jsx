@@ -64,8 +64,6 @@ export default function Header({
         <span>Kills 99.9% Germs</span>
         <span style={{ color: '#F59E0B' }}>•</span>
         <span>Available in 5L Commercial Cans</span>
-        <span style={{ color: '#F59E0B' }}>•</span>
-        <span style={{ color: '#FCD34D', fontWeight: 700 }}>Direct Manufacturer Supply</span>
       </div>
 
       <div
@@ -92,7 +90,7 @@ export default function Header({
           }}
           title="KCN Udyog Home"
         >
-          <Logo size="small" showTagline={true} />
+          <Logo size="small" />
         </button>
 
         {/* Desktop Navigation Links */}
@@ -152,22 +150,6 @@ export default function Header({
             gap: '10px',
           }}
         >
-          {onOpenCatalogModal && (
-            <button
-              onClick={onOpenCatalogModal}
-              className="btn btn-outline"
-              style={{
-                padding: '7px 14px',
-                fontSize: '0.82rem',
-                fontWeight: 700,
-                borderRadius: '9999px',
-                borderColor: '#CBD5E1',
-                color: '#16195E',
-              }}
-            >
-              Get Price List
-            </button>
-          )}
 
           <a
             href={whatsappUrl}

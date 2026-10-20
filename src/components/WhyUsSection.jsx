@@ -206,18 +206,6 @@ export default function WhyUsSection({ onOpenCatalogModal, onNavigateToContact }
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
             <button
-              onClick={onOpenCatalogModal}
-              className="btn btn-primary"
-              style={{
-                padding: '12px 20px',
-                fontSize: '0.92rem',
-                backgroundColor: '#168DC0',
-                borderRadius: '10px',
-              }}
-            >
-              Request Price List
-            </button>
-            <button
               onClick={onNavigateToContact}
               className="btn btn-outline"
               style={{

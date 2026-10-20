@@ -131,20 +131,6 @@ export default function DistributorCTA({ onOpenCatalogModal, onNavigateToContact
                   <MessageCircle size={18} />
                   <span>Enquire on WhatsApp</span>
                 </a>
-
-                <button
-                  onClick={onOpenCatalogModal}
-                  className="btn btn-navy"
-                  style={{
-                    padding: '13px 22px',
-                    fontSize: '0.96rem',
-                    fontWeight: 700,
-                    borderRadius: '12px',
-                  }}
-                >
-                  <FileText size={18} />
-                  <span>Request Wholesale Price List</span>
-                </button>
               </div>
             </div>
 

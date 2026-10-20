@@ -3,7 +3,6 @@ import {
   ChevronRight,
   Phone,
   ArrowLeft,
-  ArrowRight,
   Sparkles,
   CheckCircle2,
   ShieldCheck,
@@ -477,7 +476,7 @@ export default function ProductDetailPage({
                 </div>
               )}
 
-              {/* Action Buttons: Golden Yellow 'Get Bulk Quote' + Green 'WhatsApp Enquiry' */}
+              {/* Action Buttons: Green 'WhatsApp Enquiry' */}
               <div
                 style={{
                   display: 'flex',
@@ -486,39 +485,6 @@ export default function ProductDetailPage({
                   marginBottom: '16px',
                 }}
               >
-                {/* Yellow Get Bulk Quote Button */}
-                <button
-                  type="button"
-                  onClick={onOpenCatalogModal}
-                  style={{
-                    backgroundColor: '#FFBE1A',
-                    color: '#0F2444',
-                    padding: '12px 24px',
-                    borderRadius: '6px',
-                    fontSize: '0.98rem',
-                    fontWeight: 800,
-                    border: 'none',
-                    cursor: 'pointer',
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '8px',
-                    transition: 'all 0.15s ease',
-                    boxShadow: '0 3px 10px rgba(255, 190, 26, 0.3)',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = '#E5A810';
-                    e.currentTarget.style.transform = 'translateY(-1px)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = '#FFBE1A';
-                    e.currentTarget.style.transform = 'none';
-                  }}
-                >
-                  <span>Get Bulk Quote</span>
-                  <ArrowRight size={17} />
-                </button>
-
                 {/* Green WhatsApp Enquiry Button */}
                 <a
                   href={whatsappUrl}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { PackageCheck, ShieldCheck, Truck, Sparkles, Building2, MapPin, CheckCircle2, MessageCircle, FileText, Phone } from 'lucide-react';
+import { PackageCheck, ShieldCheck, Truck, Sparkles, Building2, MapPin, CheckCircle2, MessageCircle, Phone } from 'lucide-react';
 import { WHY_CHOOSE_US, COMPANY_INFO } from '../data/productsData';
 
 export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
@@ -60,20 +60,6 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
           </p>
 
           <div style={{ display: 'flex', justifyContent: 'center', gap: '12px', flexWrap: 'wrap' }}>
-            <button
-              onClick={onOpenCatalogModal}
-              className="btn btn-sage"
-              style={{
-                padding: '12px 24px',
-                fontSize: '0.94rem',
-                fontWeight: 700,
-                borderRadius: '9999px',
-              }}
-            >
-              <FileText size={16} />
-              <span>Get Wholesale Price List</span>
-            </button>
-
             <button
               onClick={onNavigateToContact}
               className="btn btn-outline"
@@ -242,18 +228,6 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
           </div>
 
           <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-            <button
-              onClick={onOpenCatalogModal}
-              className="btn btn-primary"
-              style={{
-                padding: '12px 20px',
-                fontSize: '0.92rem',
-                backgroundColor: '#168DC0',
-                borderRadius: '10px',
-              }}
-            >
-              Request Price List
-            </button>
             <a
               href={whatsappUrl}
               target="_blank"
