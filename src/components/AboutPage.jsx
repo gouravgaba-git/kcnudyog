@@ -64,12 +64,12 @@ export default function AboutPage({ onExploreProducts, onOpenCatalogModal, onNav
             {/* Main Title */}
             <h1
               style={{
-                fontSize: 'clamp(2.1rem, 3.6vw, 2.9rem)',
+                fontSize: 'clamp(1.5rem, 5.2vw, 2.7rem)',
                 fontWeight: 800,
                 color: '#0F2444',
                 lineHeight: 1.15,
                 letterSpacing: '-0.025em',
-                margin: '0 0 10px',
+                margin: '0 0 8px',
               }}
             >
               About KCN Udyog

@@ -194,6 +194,7 @@ export default function ProductDetailPage({
           >
             {/* LEFT COLUMN: 4 Vertical Thumbnails + Large Main Product Stage */}
             <div
+              className="product-detail-gallery-row"
               style={{
                 display: 'flex',
                 gap: 'clamp(10px, 1.8vw, 18px)',
@@ -201,8 +202,9 @@ export default function ProductDetailPage({
                 justifyContent: 'center',
               }}
             >
-              {/* Vertical Thumbnail Strip */}
+              {/* Vertical Thumbnail Strip on Desktop, Horizontal on Mobile */}
               <div
+                className="product-detail-thumbnail-strip"
                 style={{
                   display: 'flex',
                   flexDirection: 'column',
@@ -767,42 +769,40 @@ export default function ProductDetailPage({
             </button>
           </div>
 
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-              gap: '24px',
-            }}
-          >
+          {/* Related Products Grid: 2-col on mobile, multi-col on desktop */}
+          <div className="borngood-products-grid">
             {relatedProducts.map((relProd) => (
               <div
                 key={relProd.id}
                 className="borngood-card"
                 onClick={() => onSelectProduct(relProd)}
-                style={{ cursor: 'pointer' }}
               >
                 <div className="card-active-badge">
-                  <Sparkles size={12} color="#00B189" />
+                  <Sparkles size={11} color="#00B189" />
                   <span>{relProd.activeBadge || 'Active Formula'}</span>
                 </div>
 
-                <div className="borngood-card-stage">
-                  <img src={relProd.image} alt={relProd.name} />
+                <div className="card-refill-badge">
+                  <span>5L Can</span>
                 </div>
 
-                <div style={{ padding: '18px 20px 20px', textAlign: 'center', borderTop: '1px solid #F1F5F9' }}>
-                  <h3
-                    style={{
-                      fontSize: '1.05rem',
-                      fontWeight: 800,
-                      color: '#16195E',
-                      marginBottom: '6px',
-                    }}
-                  >
-                    {relProd.name}
-                  </h3>
-                  <div style={{ fontSize: '0.82rem', color: '#00B189', fontWeight: 700 }}>
-                    View Details & Formats →
+                <div className="borngood-card-stage">
+                  <img src={relProd.image} alt={relProd.name} loading="lazy" />
+                </div>
+
+                <div className="borngood-card-body" style={{ textAlign: 'center' }}>
+                  <div>
+                    <h3 className="borngood-card-title">
+                      {relProd.name}
+                    </h3>
+                  </div>
+                  <div className="borngood-card-actions">
+                    <button
+                      className="btn btn-sage borngood-btn-order"
+                      style={{ width: '100%' }}
+                    >
+                      View Formulation →
+                    </button>
                   </div>
                 </div>
               </div>

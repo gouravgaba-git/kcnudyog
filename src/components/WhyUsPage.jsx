@@ -29,19 +29,19 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
         style={{
           backgroundColor: '#FFFFFF',
           borderBottom: '1px solid #E8EEF5',
-          paddingTop: 'clamp(40px, 6vw, 68px)',
-          paddingBottom: 'clamp(36px, 5vw, 56px)',
+          paddingTop: 'clamp(24px, 4vw, 52px)',
+          paddingBottom: 'clamp(20px, 3.5vw, 42px)',
         }}
       >
         <div className="container" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}>
           <h1
             style={{
-              fontSize: 'clamp(2.2rem, 4.4vw, 3.2rem)',
+              fontSize: 'clamp(1.5rem, 5.2vw, 2.7rem)',
               fontWeight: 800,
               color: '#16195E',
               lineHeight: 1.15,
               letterSpacing: '-0.025em',
-              marginBottom: '14px',
+              marginBottom: '8px',
             }}
           >
             Why Choose KCN UDYOG?
@@ -49,10 +49,10 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
 
           <p
             style={{
-              fontSize: 'clamp(1rem, 1.4vw, 1.15rem)',
+              fontSize: 'clamp(0.85rem, 3.2vw, 1.05rem)',
               color: '#475569',
-              lineHeight: 1.6,
-              margin: '0 auto 24px',
+              lineHeight: 1.55,
+              margin: '0 auto 18px',
             }}
           >
             We focus on genuine manufacturing values: dependable formulations, dual pack sizes for
@@ -78,19 +78,21 @@ export default function WhyUsPage({ onOpenCatalogModal, onNavigateToContact }) {
         </div>
       </section>
 
-      {/* 4 Strength Cards Grid */}
-      <div className="container" style={{ paddingTop: '40px' }}>
+      {/* 4 Strength Cards Grid: 2 columns on mobile */}
+      <div className="container" style={{ paddingTop: '32px' }}>
         <div
+          className="why-us-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
-            gap: '24px',
-            marginBottom: '40px',
+            gap: '20px',
+            marginBottom: '36px',
           }}
         >
           {WHY_CHOOSE_US.map((item, idx) => (
             <div
               key={idx}
+              className="why-us-card"
               style={{
                 backgroundColor: '#FFFFFF',
                 borderRadius: '18px',

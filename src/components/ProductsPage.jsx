@@ -22,19 +22,19 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
         style={{
           backgroundColor: '#FFFFFF',
           borderBottom: '1px solid #E8EEF5',
-          paddingTop: 'clamp(40px, 6vw, 68px)',
-          paddingBottom: 'clamp(36px, 5vw, 56px)',
+          paddingTop: 'clamp(24px, 4vw, 52px)',
+          paddingBottom: 'clamp(20px, 3.5vw, 42px)',
         }}
       >
         <div className="container" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}>
           <h1
             style={{
-              fontSize: 'clamp(2.2rem, 4.4vw, 3.2rem)',
+              fontSize: 'clamp(1.5rem, 5.2vw, 2.7rem)',
               fontWeight: 800,
               color: '#16195E',
               lineHeight: 1.15,
               letterSpacing: '-0.025em',
-              marginBottom: '14px',
+              marginBottom: '8px',
             }}
           >
             Honest Formulations for Every Surface
@@ -42,10 +42,10 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
 
           <p
             style={{
-              fontSize: 'clamp(1rem, 1.4vw, 1.15rem)',
+              fontSize: 'clamp(0.85rem, 3.2vw, 1.05rem)',
               color: '#475569',
-              lineHeight: 1.6,
-              margin: '0 auto 24px',
+              lineHeight: 1.55,
+              margin: '0 auto 16px',
             }}
           >
             High-active cleaning formulations engineered to cut heavy grease, remove stubborn stains, and
@@ -115,14 +115,8 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
           </div>
         </div>
 
-        {/* Responsive Product Grid: Born Good Clean D2C Style */}
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
-            gap: 'clamp(20px, 2.5vw, 30px)',
-          }}
-        >
+        {/* Responsive Product Grid: 2-col on mobile, multi-col on desktop */}
+        <div className="borngood-products-grid">
           {filteredProducts.map((prod) => {
             const whatsappOrderUrl = `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
               `Hello KCN Udyog, I would like to order *${prod.name}* from kcnudyog.com. Please share dispatch details and pricing.`
@@ -133,142 +127,63 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
                 key={prod.id}
                 className="borngood-card"
                 onClick={() => onSelectProduct(prod)}
-                style={{ cursor: 'pointer' }}
               >
                 {/* Active formulation badge */}
                 <div className="card-active-badge">
-                  <Sparkles size={12} color="#00B189" />
+                  <Sparkles size={11} color="#00B189" />
                   <span>{prod.activeBadge || 'Active Formula'}</span>
                 </div>
 
                 <div className="card-refill-badge">
-                  <span>5L Commercial Can</span>
+                  <span>5L Can</span>
                 </div>
 
                 {/* Bottle Showcase Stage */}
                 <div className="borngood-card-stage">
-                  <img src={prod.image} alt={prod.name} />
+                  <img src={prod.image} alt={prod.name} loading="lazy" />
                 </div>
 
                 {/* Card Content Details */}
-                <div
-                  style={{
-                    padding: '20px 22px 22px',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    flexGrow: 1,
-                    justifyContent: 'space-between',
-                    borderTop: '1px solid #F1F5F9',
-                  }}
-                >
+                <div className="borngood-card-body">
                   <div>
                     {/* Review Stars */}
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '6px',
-                        marginBottom: '8px',
-                      }}
-                    >
+                    <div className="borngood-card-rating">
                       <div className="star-rating">
                         {[...Array(5)].map((_, i) => (
-                          <Star key={i} size={13} fill="#F59E0B" color="#F59E0B" strokeWidth={0} />
+                          <Star key={i} size={12} fill="#00B189" color="#00B189" strokeWidth={0} />
                         ))}
                       </div>
                       <span className="star-rating-count">
-                        {prod.rating || '4.9'} ({prod.reviewCount || '130+'} reviews)
+                        {prod.rating || '4.9'} ({prod.reviewCount || '130+'})
                       </span>
                     </div>
 
                     {/* Product Name */}
-                    <h3
-                      style={{
-                        fontSize: '1.12rem',
-                        fontWeight: 800,
-                        color: '#16195E',
-                        lineHeight: 1.35,
-                        marginBottom: '8px',
-                      }}
-                    >
+                    <h3 className="borngood-card-title">
                       {prod.name}
                     </h3>
 
-                    {/* Short Description */}
-                    <p
-                      style={{
-                        fontSize: '0.86rem',
-                        color: '#64748B',
-                        lineHeight: 1.55,
-                        marginBottom: '14px',
-                        display: '-webkit-box',
-                        WebkitLineClamp: 2,
-                        WebkitBoxOrient: 'vertical',
-                        overflow: 'hidden',
-                      }}
-                    >
+                    {/* Short Description - hidden on 2-col mobile cards */}
+                    <p className="borngood-card-desc">
                       {prod.shortDesc}
                     </p>
 
                     {/* Fragrance & Eco Pill */}
-                    <div
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '8px',
-                        flexWrap: 'wrap',
-                        marginBottom: '18px',
-                      }}
-                    >
-                      <span
-                        style={{
-                          fontSize: '0.74rem',
-                          fontWeight: 600,
-                          padding: '3px 9px',
-                          borderRadius: '9999px',
-                          backgroundColor: '#F1F5F9',
-                          color: '#475569',
-                        }}
-                      >
+                    <div className="borngood-card-pills">
+                      <span className="pill-scent">
                         🍃 {prod.scent || 'Fresh Aroma'}
                       </span>
-                      <span
-                        style={{
-                          fontSize: '0.74rem',
-                          fontWeight: 600,
-                          padding: '3px 9px',
-                          borderRadius: '9999px',
-                          backgroundColor: '#E6F8F3',
-                          color: '#00B189',
-                        }}
-                      >
+                      <span className="pill-safe">
                         ✓ {prod.transparencyPill || 'Surface Safe'}
                       </span>
                     </div>
                   </div>
 
-                  {/* Dual Action Buttons */}
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: '1fr 1fr',
-                      gap: '8px',
-                      paddingTop: '12px',
-                      borderTop: '1px solid #F1F5F9',
-                    }}
-                    onClick={(e) => e.stopPropagation()}
-                  >
+                  {/* Dual Action on Desktop, Full-width Quick Order on Mobile */}
+                  <div className="borngood-card-actions" onClick={(e) => e.stopPropagation()}>
                     <button
                       onClick={() => onSelectProduct(prod)}
-                      className="btn btn-outline"
-                      style={{
-                        padding: '9px 12px',
-                        fontSize: '0.84rem',
-                        fontWeight: 700,
-                        borderRadius: '10px',
-                        borderColor: '#CBD5E1',
-                        color: '#16195E',
-                      }}
+                      className="btn btn-outline borngood-btn-specs"
                     >
                       View Specs
                     </button>
@@ -277,17 +192,10 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
                       href={whatsappOrderUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-sage"
-                      style={{
-                        padding: '9px 12px',
-                        fontSize: '0.84rem',
-                        fontWeight: 700,
-                        borderRadius: '10px',
-                        textDecoration: 'none',
-                      }}
+                      className="btn btn-sage borngood-btn-order"
                     >
-                      <MessageCircle size={15} />
-                      <span>Order</span>
+                      <MessageCircle size={14} />
+                      <span>Order Now</span>
                     </a>
                   </div>
                 </div>

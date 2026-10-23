@@ -69,19 +69,19 @@ export default function ContactPage() {
         style={{
           backgroundColor: '#FFFFFF',
           borderBottom: '1px solid #E2E8F0',
-          paddingTop: 'clamp(36px, 6vw, 64px)',
-          paddingBottom: 'clamp(36px, 6vw, 64px)',
+          paddingTop: 'clamp(24px, 4vw, 52px)',
+          paddingBottom: 'clamp(20px, 3.5vw, 42px)',
         }}
       >
         <div className="container" style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto' }}>
           <h1
             style={{
-              fontSize: 'clamp(2rem, 4.2vw, 3rem)',
+              fontSize: 'clamp(1.5rem, 5.2vw, 2.7rem)',
               fontWeight: 800,
               color: '#2B176F',
               lineHeight: 1.15,
               letterSpacing: '-0.025em',
-              marginBottom: '14px',
+              marginBottom: '8px',
             }}
           >
             Contact & Partner Hub
@@ -89,9 +89,9 @@ export default function ContactPage() {
 
           <p
             style={{
-              fontSize: 'clamp(1rem, 1.4vw, 1.15rem)',
+              fontSize: 'clamp(0.85rem, 3.2vw, 1.05rem)',
               color: '#475569',
-              lineHeight: 1.6,
+              lineHeight: 1.55,
               margin: '0 auto',
             }}
           >

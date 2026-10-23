@@ -295,16 +295,116 @@ textarea:focus {
   background: #94A3B8;
 }
 
-/* Born Good Inspired Circular Category Strip */
-.circle-cat-strip {
+/* Announcement Bar */
+.top-announcement-bar {
+  background-color: #0F2444;
+  color: #FFFFFF;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 6px 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.2);
+  overflow: hidden;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: clamp(14px, 3vw, 28px);
+}
+
+.top-announcement-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .top-announcement-bar {
+    padding: 0 8px;
+    height: 30px;
+    font-size: 0.72rem;
+  }
+  .top-announcement-content {
+    justify-content: flex-start;
+    animation: announcement-marquee 18s linear infinite;
+    width: max-content;
+  }
+}
+
+@keyframes announcement-marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Born Good Inspired Circular Category Strip */
+.circle-cat-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.circle-cat-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  color: #16195E;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.circle-cat-arrow:hover {
+  background: #F8FAFC;
+  border-color: var(--brand-sage, #00B189);
+  color: var(--brand-sage, #00B189);
+}
+
+.circle-cat-arrow.left {
+  left: 2px;
+}
+
+.circle-cat-arrow.right {
+  right: 2px;
+}
+
+@media (min-width: 820px) {
+  .circle-cat-arrow {
+    display: none;
+  }
+}
+
+.circle-cat-strip {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 12px;
   overflow-x: auto;
-  padding: 14px 4px 18px;
+  padding: 8px 12px 10px;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  width: 100%;
+}
+
+@media (min-width: 820px) {
+  .circle-cat-strip {
+    justify-content: center;
+    gap: 24px;
+  }
 }
 
 .circle-cat-strip::-webkit-scrollbar {
@@ -315,61 +415,86 @@ textarea:focus {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   cursor: pointer;
   background: none;
   border: none;
   padding: 0;
-  min-width: 78px;
+  width: 68px;
+  min-width: 68px;
+  max-width: 74px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
   text-decoration: none;
   transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .circle-cat-item:hover {
-  transform: translateY(-4px);
+  transform: translateY(-3px);
 }
 
 .circle-cat-bubble {
-  width: 68px;
-  height: 68px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #FFFFFF;
   border: 2px solid #E2E8F0;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+  box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
   transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
+}
+
+@media (max-width: 480px) {
+  .circle-cat-bubble {
+    width: 50px;
+    height: 50px;
+  }
+  .circle-cat-item {
+    width: 64px;
+    min-width: 64px;
+    max-width: 68px;
+  }
 }
 
 .circle-cat-item:hover .circle-cat-bubble,
 .circle-cat-item.active .circle-cat-bubble {
   border-color: var(--brand-sage, #00B189);
-  box-shadow: 0 8px 20px rgba(0, 177, 137, 0.2);
+  box-shadow: 0 6px 16px rgba(0, 177, 137, 0.22);
   transform: scale(1.05);
 }
 
 .circle-cat-label {
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.70rem;
+  font-weight: 600;
   color: #334155;
   text-align: center;
-  line-height: 1.25;
-  white-space: nowrap;
+  line-height: 1.15;
+  white-space: normal;
+  word-break: break-word;
   letter-spacing: -0.01em;
+  width: 100%;
+  max-width: 70px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 24px;
 }
 
 .circle-cat-item:hover .circle-cat-label,
 .circle-cat-item.active .circle-cat-label {
   color: var(--brand-sage, #00B189);
+  font-weight: 700;
 }
 
 /* Born Good Trust Ribbon (Icon-Text Bar) */
 .trust-ribbon {
   background-color: var(--brand-sky, #8EB9E5);
   color: #FFFFFF;
-  padding: 14px 0;
+  padding: 12px 0;
   overflow: hidden;
 }
 
@@ -378,14 +503,14 @@ textarea:focus {
   align-items: center;
   justify-content: space-around;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 12px;
 }
 
 .trust-ribbon-item {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 0.88rem;
+  gap: 6px;
+  font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.01em;
   color: #FFFFFF;
@@ -396,87 +521,313 @@ textarea:focus {
 .star-rating {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
   color: #F59E0B;
 }
 
 .star-rating-count {
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   color: #64748B;
   font-weight: 600;
   margin-left: 4px;
 }
 
-/* Born Good Clean Product Card */
+/* ========================================================
+   BORN GOOD CLEAN PRODUCT CARD & 2-COLUMN MOBILE GRID
+   ======================================================== */
+.borngood-products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: clamp(16px, 2.5vw, 28px);
+  width: 100%;
+}
+
 .borngood-card {
   background-color: #FFFFFF;
-  border-radius: 20px;
+  border-radius: 18px;
   border: 1px solid #E8EEF5;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: all 0.24s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
   position: relative;
+  cursor: pointer;
+  height: 100%;
 }
 
 .borngood-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--brand-sage, #00B189);
-  box-shadow: 0 20px 36px -8px rgba(0, 177, 137, 0.16), 0 0 0 1px rgba(0, 177, 137, 0.25);
+  box-shadow: 0 16px 32px -6px rgba(0, 177, 137, 0.16), 0 0 0 1px rgba(0, 177, 137, 0.25);
 }
 
 .borngood-card-stage {
   background: linear-gradient(180deg, #FAF9F6 0%, #FFFFFF 100%);
-  padding: 24px 16px 12px;
+  padding: 22px 16px 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  min-height: 220px;
+  min-height: 200px;
 }
 
 .borngood-card-stage img {
-  max-height: 180px;
+  max-height: 170px;
   max-width: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 10px 16px rgba(15, 23, 42, 0.1));
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  filter: drop-shadow(0 8px 16px rgba(15, 23, 42, 0.1));
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .borngood-card:hover .borngood-card-stage img {
-  transform: scale(1.06);
+  transform: scale(1.05);
 }
 
-/* Born Good Card Badges */
 .card-active-badge {
   position: absolute;
-  top: 14px;
-  left: 14px;
+  top: 12px;
+  left: 12px;
   background-color: #FFFFFF;
   border: 1px solid #E2E8F0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   border-radius: 9999px;
-  padding: 3px 10px;
-  font-size: 0.72rem;
+  padding: 3px 9px;
+  font-size: 0.70rem;
   font-weight: 700;
   color: #0F766E;
   display: flex;
   align-items: center;
   gap: 4px;
+  z-index: 3;
 }
 
 .card-refill-badge {
   position: absolute;
-  top: 14px;
-  right: 14px;
+  top: 12px;
+  right: 12px;
   background-color: #EFF6FF;
   border: 1px solid #BFDBFE;
   border-radius: 9999px;
   padding: 3px 9px;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   font-weight: 700;
   color: #1D4ED8;
+  z-index: 3;
+}
+
+.borngood-card-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  border-top: 1px solid #F1F5F9;
+}
+
+.borngood-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.borngood-card-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #16195E;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.borngood-card-desc {
+  font-size: 0.84rem;
+  color: #64748B;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.borngood-card-pills {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.pill-scent {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background-color: #F1F5F9;
+  color: #475569;
+}
+
+.pill-safe {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 9999px;
+  background-color: #E6F8F3;
+  color: #00B189;
+}
+
+.borngood-card-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #F1F5F9;
+}
+
+.borngood-btn-specs {
+  padding: 9px 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 10px;
+  border-color: #CBD5E1;
+  color: #16195E;
+}
+
+.borngood-btn-order {
+  padding: 9px 12px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  border-radius: 10px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+/* ========================================================
+   CRITICAL MOBILE OPTIMIZATIONS (MATCHING BORN GOOD REFERENCE)
+   ======================================================== */
+@media (max-width: 640px) {
+  /* 2 COLUMNS STRICTLY ON MOBILE! */
+  .borngood-products-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .borngood-card {
+    border-radius: 14px !important;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04) !important;
+  }
+
+  .borngood-card-stage {
+    min-height: 125px !important;
+    height: 135px !important;
+    padding: 10px 8px 6px !important;
+  }
+
+  .borngood-card-stage img {
+    max-height: 110px !important;
+    max-width: 90% !important;
+  }
+
+  .card-active-badge {
+    top: 6px !important;
+    left: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 0.58rem !important;
+    gap: 2px !important;
+  }
+
+  .card-active-badge span {
+    max-width: 65px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .card-refill-badge {
+    top: 6px !important;
+    right: 6px !important;
+    padding: 2px 6px !important;
+    font-size: 0.58rem !important;
+  }
+
+  .borngood-card-body {
+    padding: 10px 9px 10px !important;
+  }
+
+  .borngood-card-rating {
+    margin-bottom: 4px !important;
+    gap: 4px !important;
+  }
+
+  .star-rating svg {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .star-rating-count {
+    font-size: 0.68rem !important;
+    margin-left: 2px !important;
+  }
+
+  .borngood-card-title {
+    font-size: 0.80rem !important; /* ~13px */
+    font-weight: 700 !important;
+    line-height: 1.25 !important;
+    min-height: 32px !important;
+    margin-bottom: 5px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide long body text on 2-col cards, just like Born Good */
+  .borngood-card-desc {
+    display: none !important;
+  }
+
+  .borngood-card-pills {
+    margin-bottom: 8px !important;
+    gap: 4px !important;
+  }
+
+  .pill-scent {
+    font-size: 0.62rem !important;
+    padding: 2px 6px !important;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .pill-safe {
+    display: none !important; /* Keep compact on mobile */
+  }
+
+  .borngood-card-actions {
+    grid-template-columns: 1fr !important;
+    gap: 0 !important;
+    padding-top: 8px !important;
+  }
+
+  .borngood-btn-specs {
+    display: none !important; /* Entire card is clickable to view specs! */
+  }
+
+  .borngood-btn-order {
+    width: 100% !important;
+    padding: 8px 6px !important;
+    font-size: 0.74rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    justify-content: center !important;
+    background-color: #00B189 !important; /* Born Good clean emerald green */
+    color: #FFFFFF !important;
+  }
 }
 
 /* BornGood Inspired Wave Footer */
@@ -643,5 +994,102 @@ textarea:focus {
   .hero-product-bottle {
     width: calc(100% / 6);
     max-height: 140px;
+  }
+}
+
+/* ========================================================
+   ADDITIONAL MOBILE REFINEMENTS ACROSS PROJECT
+   ======================================================== */
+@media (max-width: 640px) {
+  /* Hero Typography & CTAs */
+  .hero-banner-content h1 {
+    font-size: clamp(1.5rem, 5.8vw, 2.1rem) !important;
+    line-height: 1.12 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .hero-banner-content p {
+    font-size: 0.85rem !important;
+    line-height: 1.42 !important;
+    margin-bottom: 6px !important;
+  }
+
+  .hero-banner-ctas {
+    gap: 8px !important;
+  }
+
+  .hero-btn-primary, .hero-btn-enquiry {
+    padding: 10px 18px !important;
+    font-size: 0.86rem !important;
+  }
+
+  /* Philosophy / 4 Pillars Grid: 2 columns on mobile */
+  .philosophy-pillars-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .philosophy-pillar-card {
+    padding: 16px 12px !important;
+    border-radius: 14px !important;
+  }
+
+  .philosophy-pillar-icon {
+    width: 42px !important;
+    height: 42px !important;
+    margin-bottom: 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .philosophy-pillar-tag {
+    font-size: 0.65rem !important;
+  }
+
+  .philosophy-pillar-title {
+    font-size: 0.94rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .philosophy-pillar-subtitle {
+    font-size: 0.74rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .philosophy-pillar-desc {
+    font-size: 0.78rem !important;
+    line-height: 1.45 !important;
+  }
+
+  /* Why Us Strength Cards: 2 columns on mobile */
+  .why-us-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 24px !important;
+  }
+
+  .why-us-card {
+    padding: 16px 12px !important;
+    border-radius: 14px !important;
+  }
+
+  /* Filter pills on Products Page */
+  .filter-pill {
+    padding: 6px 12px !important;
+    font-size: 0.78rem !important;
+  }
+
+  /* Product Detail Page Gallery Row */
+  .product-detail-gallery-row {
+    flex-direction: column-reverse !important;
+    gap: 12px !important;
+  }
+
+  .product-detail-thumbnail-strip {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    width: 100% !important;
+    justify-content: center !important;
+    padding-bottom: 4px !important;
   }
 }

@@ -40,30 +40,16 @@ export default function Header({
       }}
     >
       {/* Top Brand Value Announcement Bar */}
-      <div
-        style={{
-          backgroundColor: '#0F2444',
-          color: '#FFFFFF',
-          fontSize: '0.78rem',
-          fontWeight: 600,
-          letterSpacing: '0.02em',
-          padding: '7px 12px',
-          textAlign: 'center',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          gap: '10px',
-          flexWrap: 'wrap',
-          borderBottom: '1px solid rgba(245, 158, 11, 0.2)',
-        }}
-      >
-        <span>⚡ High-Active Formulations</span>
-        <span style={{ color: '#F59E0B' }}>•</span>
-        <span>Removes Tough Grease & Stains</span>
-        <span style={{ color: '#F59E0B' }}>•</span>
-        <span>Kills 99.9% Germs</span>
-        <span style={{ color: '#F59E0B' }}>•</span>
-        <span>Available in 5L Commercial Cans</span>
+      <div className="top-announcement-bar">
+        <div className="top-announcement-content">
+          <span>⚡ High-Active Formulations</span>
+          <span style={{ color: '#F59E0B' }}>•</span>
+          <span>Removes Tough Grease & Stains</span>
+          <span style={{ color: '#F59E0B' }}>•</span>
+          <span>Kills 99.9% Germs</span>
+          <span style={{ color: '#F59E0B' }}>•</span>
+          <span>Available in 5L Commercial Cans</span>
+        </div>
       </div>
 
       <div

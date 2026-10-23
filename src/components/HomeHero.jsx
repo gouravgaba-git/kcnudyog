@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import {
   ArrowRight,
   Sparkles,
@@ -17,6 +17,8 @@ import {
   Recycle,
   Star,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
 } from 'lucide-react';
 import {
   PRODUCTS,
@@ -30,6 +32,14 @@ import {
 
 export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSelectProduct, onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
+  const catStripRef = useRef(null);
+
+  const scrollCatStrip = (direction) => {
+    if (catStripRef.current) {
+      const scrollAmount = direction === 'left' ? -220 : 220;
+      catStripRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const getCircleIcon = (iconName) => {
     switch (iconName) {
@@ -85,41 +95,61 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
         style={{
           backgroundColor: '#FFFFFF',
           borderBottom: '1px solid #E8EEF5',
-          padding: '12px 0 10px',
+          padding: '10px 0 8px',
         }}
       >
-        <div className="container">
-          <div className="circle-cat-strip">
-            {CIRCLE_CATEGORIES.map((cat) => {
-              const isActive = selectedCategory === cat.id;
-              return (
-                <button
-                  key={cat.id}
-                  onClick={() => {
-                    setSelectedCategory(cat.id);
-                    const el = document.getElementById('bestsellers-grid');
-                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className={`circle-cat-item ${isActive ? 'active' : ''}`}
-                >
-                  <div
-                    className="circle-cat-bubble"
-                    style={{
-                      backgroundColor: isActive ? cat.bg : '#FFFFFF',
-                      borderColor: isActive ? cat.color : '#E2E8F0',
+        <div className="container" style={{ position: 'relative' }}>
+          <div className="circle-cat-wrapper">
+            <button
+              type="button"
+              className="circle-cat-arrow left"
+              onClick={() => scrollCatStrip('left')}
+              aria-label="Scroll categories left"
+            >
+              <ChevronLeft size={16} />
+            </button>
+
+            <div className="circle-cat-strip" ref={catStripRef}>
+              {CIRCLE_CATEGORIES.map((cat) => {
+                const isActive = selectedCategory === cat.id;
+                return (
+                  <button
+                    key={cat.id}
+                    onClick={() => {
+                      setSelectedCategory(cat.id);
+                      const el = document.getElementById('bestsellers-grid');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
+                    className={`circle-cat-item ${isActive ? 'active' : ''}`}
                   >
-                    {getCircleIcon(cat.icon)}
-                  </div>
-                  <span
-                    className="circle-cat-label"
-                    style={{ color: isActive ? cat.color : '#334155' }}
-                  >
-                    {cat.label}
-                  </span>
-                </button>
-              );
-            })}
+                    <div
+                      className="circle-cat-bubble"
+                      style={{
+                        backgroundColor: isActive ? cat.bg : '#FFFFFF',
+                        borderColor: isActive ? cat.color : '#E2E8F0',
+                      }}
+                    >
+                      {getCircleIcon(cat.icon)}
+                    </div>
+                    <span
+                      className="circle-cat-label"
+                      style={{ color: isActive ? cat.color : '#334155' }}
+                    >
+                      {cat.label}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            <button
+              type="button"
+              className="circle-cat-arrow right"
+              onClick={() => scrollCatStrip('right')}
+              aria-label="Scroll categories right"
+            >
+              <ChevronRight size={16} />
+            </button>
           </div>
         </div>
       </section>
@@ -128,8 +158,8 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
       <section
         style={{
           position: 'relative',
-          paddingTop: 'clamp(36px, 5vw, 60px)',
-          paddingBottom: 'clamp(40px, 6vw, 68px)',
+          paddingTop: 'clamp(28px, 4.5vw, 56px)',
+          paddingBottom: 'clamp(32px, 5vw, 64px)',
           backgroundColor: '#FFFFFF',
         }}
       >
@@ -137,15 +167,7 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
           <div className="hero-banner-split">
             {/* Left Column: Brand Statement & Actions */}
             <div className="hero-banner-content">
-              <h1
-                style={{
-                  fontSize: 'clamp(1.9rem, 2.9vw, 2.85rem)',
-                  fontWeight: 900,
-                  lineHeight: 1.06,
-                  letterSpacing: '-0.025em',
-                  margin: '0 0 10px',
-                }}
-              >
+              <h1 className="hero-main-title">
                 <span style={{ color: '#0F2444', display: 'block' }}>
                   CLEAN SPACES.
                 </span>
@@ -154,16 +176,7 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                 </span>
               </h1>
 
-              <p
-                style={{
-                  fontSize: 'clamp(0.92rem, 1.15vw, 1.06rem)',
-                  fontWeight: 500,
-                  color: '#334155',
-                  lineHeight: 1.45,
-                  maxWidth: '440px',
-                  margin: '0 0 8px',
-                }}
-              >
+              <p className="hero-subtitle">
                 Reliable cleaning solutions for homes, workplaces and institutions.
               </p>
 
@@ -172,24 +185,14 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                   display: 'inline-flex',
                   flexDirection: 'column',
                   alignItems: 'flex-start',
-                  marginBottom: '20px',
+                  marginBottom: '16px',
                 }}
               >
-                <span
-                  style={{
-                    fontFamily: "'Caveat', cursive, sans-serif",
-                    fontSize: 'clamp(1.5rem, 2.1vw, 1.95rem)',
-                    fontWeight: 700,
-                    color: '#0F2444',
-                    fontStyle: 'italic',
-                    letterSpacing: '0.01em',
-                    lineHeight: 1.1,
-                  }}
-                >
+                <span className="hero-script-tag">
                   Har jagah saaf-safai.
                 </span>
                 <svg
-                  width="155"
+                  width="145"
                   height="12"
                   viewBox="0 0 170 14"
                   fill="none"
@@ -340,14 +343,8 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
             </p>
           </div>
 
-          {/* Product Cards Grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 300px), 1fr))',
-              gap: 'clamp(20px, 2.5vw, 28px)',
-            }}
-          >
+          {/* Product Cards Grid: 2-col on mobile, multi-col on desktop */}
+          <div className="borngood-products-grid">
             {filteredProducts.map((prod) => {
               const whatsappOrderUrl = `https://wa.me/${COMPANY_INFO.whatsappRaw}?text=${encodeURIComponent(
                 `Hello KCN Udyog, I would like to order *${prod.name}* (500ml / 5L Commercial Can). Please share pricing and dispatch details.`
@@ -358,148 +355,69 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                   key={prod.id}
                   className="borngood-card"
                   onClick={() => onSelectProduct(prod)}
-                  style={{ cursor: 'pointer' }}
                 >
                   {/* Top Badges */}
                   <div className="card-active-badge">
-                    <Sparkles size={12} color="#0284C7" />
+                    <Sparkles size={11} color="#0284C7" />
                     <span>{prod.activeBadge || 'Active Formula'}</span>
                   </div>
 
                   <div className="card-refill-badge">
-                    <span>5L Commercial Can</span>
+                    <span>5L Can</span>
                   </div>
 
                   {/* Bottle Showcase Stage */}
                   <div className="borngood-card-stage">
-                    <img src={prod.image} alt={prod.name} />
+                    <img src={prod.image} alt={prod.name} loading="lazy" />
                   </div>
 
                   {/* Card Content */}
-                  <div
-                    style={{
-                      padding: '20px 22px 22px',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      flexGrow: 1,
-                      justifyContent: 'space-between',
-                      borderTop: '1px solid #F1F5F9',
-                    }}
-                  >
+                  <div className="borngood-card-body">
                     <div>
                       {/* Review Stars */}
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          marginBottom: '8px',
-                        }}
-                      >
+                      <div className="borngood-card-rating">
                         <div className="star-rating">
                           {[...Array(5)].map((_, i) => (
                             <Star
                               key={i}
-                              size={13}
-                              fill="#F59E0B"
-                              color="#F59E0B"
+                              size={12}
+                              fill="#00B189"
+                              color="#00B189"
                               strokeWidth={0}
                             />
                           ))}
                         </div>
                         <span className="star-rating-count">
-                          {prod.rating || '4.9'} ({prod.reviewCount || '140+'} reviews)
+                          {prod.rating || '4.9'} ({prod.reviewCount || '140+'})
                         </span>
                       </div>
 
                       {/* Product Title */}
-                      <h3
-                        style={{
-                          fontSize: '1.08rem',
-                          fontWeight: 800,
-                          color: '#16195E',
-                          lineHeight: 1.35,
-                          marginBottom: '8px',
-                        }}
-                      >
+                      <h3 className="borngood-card-title">
                         {prod.name}
                       </h3>
 
-                      {/* Short Benefit Statement */}
-                      <p
-                        style={{
-                          fontSize: '0.86rem',
-                          color: '#64748B',
-                          lineHeight: 1.55,
-                          marginBottom: '14px',
-                          display: '-webkit-box',
-                          WebkitLineClamp: 2,
-                          WebkitBoxOrient: 'vertical',
-                          overflow: 'hidden',
-                        }}
-                      >
+                      {/* Short Benefit Statement - hidden on 2-col mobile cards */}
+                      <p className="borngood-card-desc">
                         {prod.shortDesc}
                       </p>
 
                       {/* Fragrance & Eco Pill */}
-                      <div
-                        style={{
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '8px',
-                          flexWrap: 'wrap',
-                          marginBottom: '18px',
-                        }}
-                      >
-                        <span
-                          style={{
-                            fontSize: '0.74rem',
-                            fontWeight: 600,
-                            padding: '3px 9px',
-                            borderRadius: '9999px',
-                            backgroundColor: '#F1F5F9',
-                            color: '#475569',
-                          }}
-                        >
+                      <div className="borngood-card-pills">
+                        <span className="pill-scent">
                           🍃 {prod.scent || 'Fresh Aroma'}
                         </span>
-                        <span
-                          style={{
-                            fontSize: '0.74rem',
-                            fontWeight: 600,
-                            padding: '3px 9px',
-                            borderRadius: '9999px',
-                            backgroundColor: '#E6F8F3',
-                            color: '#00B189',
-                          }}
-                        >
+                        <span className="pill-safe">
                           ✓ {prod.transparencyPill || 'Surface Safe'}
                         </span>
                       </div>
                     </div>
 
-                    {/* Dual Action Buttons */}
-                    <div
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: '1fr 1fr',
-                        gap: '8px',
-                        paddingTop: '12px',
-                        borderTop: '1px solid #F1F5F9',
-                      }}
-                      onClick={(e) => e.stopPropagation()}
-                    >
+                    {/* Dual Action on Desktop, Full-width Quick Order on Mobile */}
+                    <div className="borngood-card-actions" onClick={(e) => e.stopPropagation()}>
                       <button
                         onClick={() => onSelectProduct(prod)}
-                        className="btn btn-outline"
-                        style={{
-                          padding: '9px 12px',
-                          fontSize: '0.84rem',
-                          fontWeight: 700,
-                          borderRadius: '10px',
-                          borderColor: '#CBD5E1',
-                          color: '#16195E',
-                        }}
+                        className="btn btn-outline borngood-btn-specs"
                       >
                         View Specs
                       </button>
@@ -508,17 +426,10 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                         href={whatsappOrderUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="btn btn-sage"
-                        style={{
-                          padding: '9px 12px',
-                          fontSize: '0.84rem',
-                          fontWeight: 700,
-                          borderRadius: '10px',
-                          textDecoration: 'none',
-                        }}
+                        className="btn btn-sage borngood-btn-order"
                       >
-                        <MessageCircle size={15} />
-                        <span>Order</span>
+                        <MessageCircle size={14} />
+                        <span>Order Now</span>
                       </a>
                     </div>
                   </div>
@@ -610,21 +521,16 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
             </p>
           </div>
 
-          {/* 4 Pillars Grid */}
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 260px), 1fr))',
-              gap: '24px',
-            }}
-          >
+          {/* 4 Pillars Grid: 2 columns on mobile */}
+          <div className="philosophy-pillars-grid">
             {TRANSPARENCY_PILLARS.map((pillar, idx) => (
               <div
                 key={idx}
+                className="philosophy-pillar-card"
                 style={{
                   backgroundColor: '#FFFFFF',
                   borderRadius: '20px',
-                  padding: '30px 24px',
+                  padding: '28px 22px',
                   border: '1px solid #E8EEF5',
                   boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)',
                   display: 'flex',
@@ -644,22 +550,24 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
               >
                 {/* Icon bubble */}
                 <div
+                  className="philosophy-pillar-icon"
                   style={{
-                    width: '56px',
-                    height: '56px',
-                    borderRadius: '16px',
+                    width: '52px',
+                    height: '52px',
+                    borderRadius: '14px',
                     backgroundColor: '#FAF9F6',
                     border: '1px solid #E2E8F0',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginBottom: '20px',
+                    marginBottom: '16px',
                   }}
                 >
                   {getPillarIcon(pillar.icon)}
                 </div>
 
                 <div
+                  className="philosophy-pillar-tag"
                   style={{
                     fontSize: '0.74rem',
                     fontWeight: 700,
@@ -673,11 +581,12 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                 </div>
 
                 <h3
+                  className="philosophy-pillar-title"
                   style={{
-                    fontSize: '1.18rem',
+                    fontSize: '1.12rem',
                     fontWeight: 800,
                     color: '#16195E',
-                    marginBottom: '6px',
+                    marginBottom: '4px',
                     lineHeight: 1.3,
                   }}
                 >
@@ -685,17 +594,21 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                 </h3>
 
                 <div
+                  className="philosophy-pillar-subtitle"
                   style={{
-                    fontSize: '0.86rem',
+                    fontSize: '0.84rem',
                     fontWeight: 600,
                     color: '#64748B',
-                    marginBottom: '12px',
+                    marginBottom: '10px',
                   }}
                 >
                   {pillar.subtitle}
                 </div>
 
-                <p style={{ fontSize: '0.9rem', color: '#475569', lineHeight: 1.6, margin: 0 }}>
+                <p
+                  className="philosophy-pillar-desc"
+                  style={{ fontSize: '0.88rem', color: '#475569', lineHeight: 1.55, margin: 0 }}
+                >
                   {pillar.desc}
                 </p>
               </div>
