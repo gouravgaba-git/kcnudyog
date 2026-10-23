@@ -4,8 +4,6 @@ import {
   Truck,
   Tag,
   Users,
-  Compass,
-  FileText,
   MapPin,
   Building2,
   PackageCheck,
@@ -22,292 +20,139 @@ export default function AboutPage({ onExploreProducts, onOpenCatalogModal, onNav
 
   return (
     <div style={{ backgroundColor: '#FAF9F6', minHeight: '100vh', paddingBottom: '70px' }}>
-      {/* Reference-Inspired Hero Showcase Banner */}
+      {/* Clean Centered About Header */}
       <section
         style={{
           position: 'relative',
           backgroundColor: '#FFFFFF',
           borderBottom: '1px solid #E5E7EB',
           overflow: 'hidden',
+          padding: 'clamp(40px, 6vw, 64px) 20px',
         }}
       >
         <div
+          className="container"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 540px), 1fr))',
-            minHeight: '440px',
+            maxWidth: '820px',
+            margin: '0 auto',
+            textAlign: 'center',
           }}
         >
-          {/* Left Column: Content */}
+          {/* Small Top Brand Identity */}
           <div
             style={{
-              padding: 'clamp(32px, 4.5vw, 56px) clamp(24px, 4vw, 56px)',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              backgroundColor: '#FFFFFF',
-              zIndex: 2,
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '8px',
+              marginBottom: '16px',
             }}
           >
-            {/* Small Top Brand Identity */}
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '8px',
-                marginBottom: '12px',
-              }}
-            >
-              <Logo size="xs" showTagline={false} />
-            </div>
-
-            {/* Main Title */}
-            <h1
-              style={{
-                fontSize: 'clamp(1.5rem, 5.2vw, 2.7rem)',
-                fontWeight: 800,
-                color: '#0F2444',
-                lineHeight: 1.15,
-                letterSpacing: '-0.025em',
-                margin: '0 0 8px',
-              }}
-            >
-              About KCN Udyog
-            </h1>
-
-            {/* Subheading */}
-            <h2
-              style={{
-                fontSize: 'clamp(1.05rem, 1.4vw, 1.22rem)',
-                fontWeight: 700,
-                color: '#0F2444',
-                margin: '0 0 14px',
-                lineHeight: 1.35,
-              }}
-            >
-              Cleaning Solutions for a Brighter Tomorrow.
-            </h2>
-
-            {/* Body Copy Exactly from Reference */}
-            <p
-              style={{
-                fontSize: '0.96rem',
-                color: '#374151',
-                lineHeight: 1.65,
-                margin: '0 0 28px',
-                maxWidth: '560px',
-              }}
-            >
-              KCN Udyog (Clean Go) is committed to providing high-quality cleaning solutions for
-              homes, workplaces and institutions. We believe every space deserves to be clean, safe
-              and healthy. Our products are designed to deliver effective cleaning, better hygiene
-              and a fresher environment.
-            </p>
-
-            {/* 4 Golden Circular Badges in a Row */}
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(115px, 1fr))',
-                gap: '14px',
-                alignItems: 'center',
-              }}
-            >
-              {[
-                { icon: ShieldCheck, label: 'Quality\nProducts' },
-                { icon: Truck, label: 'Reliable\nSupply' },
-                { icon: Tag, label: 'Competitive\nPricing' },
-                { icon: Users, label: 'Customer\nFocus' },
-              ].map((item, idx) => {
-                const IconComp = item.icon;
-                return (
-                  <div
-                    key={idx}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '10px',
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: '38px',
-                        height: '38px',
-                        borderRadius: '50%',
-                        backgroundColor: '#FFBE1A',
-                        color: '#0F2444',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        flexShrink: 0,
-                        boxShadow: '0 2px 6px rgba(255, 190, 26, 0.35)',
-                      }}
-                    >
-                      <IconComp size={19} strokeWidth={2.4} />
-                    </div>
-                    <span
-                      style={{
-                        fontSize: '0.82rem',
-                        fontWeight: 700,
-                        color: '#0F2444',
-                        lineHeight: 1.2,
-                        whiteSpace: 'pre-line',
-                      }}
-                    >
-                      {item.label}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
+            <Logo size="xs" showTagline={false} />
           </div>
 
-          {/* Right Column: Clean Go Authentic Brand Showcase & Vision */}
-          <div
+          {/* Main Title */}
+          <h1
             style={{
-              position: 'relative',
-              minHeight: '440px',
-              background: 'linear-gradient(145deg, #0F2444 0%, #16325C 100%)',
-              borderRadius: '20px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 'clamp(28px, 4vw, 44px)',
-              overflow: 'hidden',
-              boxShadow: '0 12px 32px rgba(15, 36, 68, 0.15)',
+              fontSize: 'clamp(1.85rem, 5vw, 2.9rem)',
+              fontWeight: 800,
+              color: '#0F2444',
+              lineHeight: 1.15,
+              letterSpacing: '-0.025em',
+              margin: '0 0 10px',
             }}
           >
-            {/* Real Clean Go 5L Lineup Studio Pack */}
-            <div style={{ textAlign: 'center', marginBottom: '22px' }}>
-              <img
-                src="/images/hero-cans-only.png"
-                alt="Clean Go 5L Commercial Pack Lineup"
-                style={{
-                  maxHeight: '125px',
-                  maxWidth: '92%',
-                  objectFit: 'contain',
-                  filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.4))',
-                  display: 'inline-block',
-                }}
-              />
-            </div>
+            About KCN Udyog
+          </h1>
 
-            {/* Vision and Mission Card */}
-            <div
-              style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.07)',
-                borderRadius: '16px',
-                padding: 'clamp(20px, 3vw, 24px)',
-                maxWidth: '420px',
-                width: '100%',
-                border: '1px solid rgba(255, 255, 255, 0.14)',
-                backdropFilter: 'blur(8px)',
-                position: 'relative',
-                zIndex: 2,
-              }}
-            >
-              {/* Item 1: Our Vision */}
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '14px',
-                  alignItems: 'flex-start',
-                  marginBottom: '20px',
-                }}
-              >
+          {/* Subheading */}
+          <h2
+            style={{
+              fontSize: 'clamp(1.08rem, 1.8vw, 1.3rem)',
+              fontWeight: 700,
+              color: '#00B189',
+              margin: '0 0 18px',
+              lineHeight: 1.35,
+            }}
+          >
+            Cleaning Solutions for a Brighter Tomorrow.
+          </h2>
+
+          {/* Body Copy */}
+          <p
+            style={{
+              fontSize: '1rem',
+              color: '#4B5563',
+              lineHeight: 1.7,
+              margin: '0 auto 36px',
+              maxWidth: '680px',
+            }}
+          >
+            KCN Udyog (Clean Go) is committed to providing high-quality cleaning solutions for
+            homes, workplaces and institutions. We believe every space deserves to be clean, safe
+            and healthy. Our products are designed to deliver effective cleaning, better hygiene
+            and a fresher environment.
+          </p>
+
+          {/* 4 Golden Circular Badges in a Row */}
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))',
+              gap: '16px',
+              alignItems: 'center',
+              justifyContent: 'center',
+              maxWidth: '680px',
+              margin: '0 auto',
+            }}
+          >
+            {[
+              { icon: ShieldCheck, label: 'Quality\nProducts' },
+              { icon: Truck, label: 'Reliable\nSupply' },
+              { icon: Tag, label: 'Competitive\nPricing' },
+              { icon: Users, label: 'Customer\nFocus' },
+            ].map((item, idx) => {
+              const IconComp = item.icon;
+              return (
                 <div
+                  key={idx}
                   style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    backgroundColor: '#FFBE1A',
-                    color: '#0F2444',
                     display: 'flex',
+                    flexDirection: 'column',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    boxShadow: '0 2px 8px rgba(255, 190, 26, 0.35)',
+                    gap: '8px',
+                    textAlign: 'center',
                   }}
                 >
-                  <Compass size={20} strokeWidth={2.4} />
-                </div>
-                <div>
-                  <h3
+                  <div
                     style={{
-                      fontSize: '1.05rem',
-                      fontWeight: 800,
-                      color: '#FFFFFF',
-                      margin: '0 0 4px',
+                      width: '46px',
+                      height: '46px',
+                      borderRadius: '50%',
+                      backgroundColor: '#FFBE1A',
+                      color: '#0F2444',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                      boxShadow: '0 2px 8px rgba(255, 190, 26, 0.35)',
                     }}
                   >
-                    Our Vision
-                  </h3>
-                  <p
+                    <IconComp size={20} strokeWidth={2.4} />
+                  </div>
+                  <span
                     style={{
-                      fontSize: '0.86rem',
-                      color: '#E2E8F0',
-                      lineHeight: 1.45,
-                      margin: 0,
+                      fontSize: '0.85rem',
+                      fontWeight: 700,
+                      color: '#0F2444',
+                      lineHeight: 1.25,
+                      whiteSpace: 'pre-line',
                     }}
                   >
-                    To make clean and hygienic spaces accessible everywhere.
-                  </p>
+                    {item.label}
+                  </span>
                 </div>
-              </div>
-
-              {/* Subtle Divider */}
-              <div
-                style={{
-                  height: '1px',
-                  backgroundColor: 'rgba(255, 255, 255, 0.12)',
-                  marginBottom: '20px',
-                }}
-              />
-
-              {/* Item 2: Our Mission */}
-              <div style={{ display: 'flex', gap: '14px', alignItems: 'flex-start' }}>
-                <div
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    backgroundColor: '#FFBE1A',
-                    color: '#0F2444',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                    boxShadow: '0 2px 8px rgba(255, 190, 26, 0.35)',
-                  }}
-                >
-                  <FileText size={20} strokeWidth={2.4} />
-                </div>
-                <div>
-                  <h3
-                    style={{
-                      fontSize: '1.05rem',
-                      fontWeight: 800,
-                      color: '#FFFFFF',
-                      margin: '0 0 4px',
-                    }}
-                  >
-                    Our Mission
-                  </h3>
-                  <p
-                    style={{
-                      fontSize: '0.86rem',
-                      color: '#E2E8F0',
-                      lineHeight: 1.45,
-                      margin: 0,
-                    }}
-                  >
-                    To deliver effective, affordable and reliable cleaning solutions for a
-                    healthier tomorrow.
-                  </p>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
       </section>
