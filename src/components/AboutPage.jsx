@@ -167,7 +167,7 @@ export default function AboutPage({ onExploreProducts, onOpenCatalogModal, onNav
             style={{
               position: 'relative',
               minHeight: '440px',
-              backgroundImage: 'url(/images/about-conveyor-facility.webp)',
+              backgroundImage: 'url(/images/about-cleango-facility.webp)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               display: 'flex',
