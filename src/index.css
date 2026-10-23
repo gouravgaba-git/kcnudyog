@@ -1071,3 +1071,149 @@ textarea:focus {
     padding-bottom: 4px !important;
   }
 }
+
+/* ========================================================
+   Born Good Signature Reviews Section ("the good feedback")
+   ======================================================== */
+.reviews-section {
+  background-color: #F6D3DC;
+  padding: 48px 0 42px;
+  overflow: hidden;
+}
+
+.reviews-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2rem, 5.5vw, 2.75rem);
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.015em;
+  text-align: center;
+  margin: 0 auto 28px;
+  text-transform: lowercase;
+}
+
+.reviews-carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  gap: 16px;
+  padding: 10px 28px 24px;
+  margin: 0 auto;
+}
+
+.reviews-carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.review-arched-card {
+  scroll-snap-align: center;
+  flex: 0 0 calc(100vw - 80px);
+  max-width: 320px;
+  background-color: #FFFFFF;
+  border-radius: 42px;
+  padding: 34px 22px 28px;
+  box-shadow: 0 8px 24px rgba(180, 100, 120, 0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.review-avatar-img {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 3px solid #FFFFFF;
+}
+
+.review-author-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1F2937;
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.review-stars-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 14px;
+}
+
+.review-quote-text {
+  font-size: 0.88rem;
+  line-height: 1.62;
+  color: #374151;
+  text-align: center;
+  margin: 0;
+  font-weight: 400;
+}
+
+.reviews-pagination-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.reviews-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.22);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.reviews-dot.active {
+  background-color: #2D3748;
+  transform: scale(1.2);
+}
+
+@media (min-width: 900px) {
+  .reviews-carousel-track {
+    justify-content: center;
+    gap: 24px;
+    padding: 12px 24px 28px;
+    overflow-x: visible;
+  }
+  .review-arched-card {
+    flex: 0 0 270px;
+    max-width: 270px;
+  }
+  .reviews-pagination-dots {
+    display: none;
+  }
+}
+
+/* ========================================================
+   Born Good Signature Green Footer
+   ======================================================== */
+.footer-link-btn {
+  background: none;
+  border: none;
+  color: #FFFFFF;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  line-height: 1.4;
+  opacity: 0.95;
+  transition: opacity 0.15s ease;
+}
+
+.footer-link-btn:hover {
+  opacity: 0.75;
+}

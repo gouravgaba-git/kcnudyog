@@ -32,6 +32,28 @@ import {
 export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSelectProduct, onNavigate }) {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const catStripRef = useRef(null);
+  const [activeReviewIndex, setActiveReviewIndex] = useState(0);
+  const reviewsScrollRef = useRef(null);
+
+  const handleReviewScroll = () => {
+    if (reviewsScrollRef.current) {
+      const scrollLeft = reviewsScrollRef.current.scrollLeft;
+      const cardWidth = reviewsScrollRef.current.offsetWidth * 0.82;
+      const index = Math.round(scrollLeft / (cardWidth || 1));
+      setActiveReviewIndex(Math.min(Math.max(index, 0), TESTIMONIALS.length - 1));
+    }
+  };
+
+  const scrollToReview = (index) => {
+    setActiveReviewIndex(index);
+    if (reviewsScrollRef.current && reviewsScrollRef.current.children[index]) {
+      reviewsScrollRef.current.children[index].scrollIntoView({
+        behavior: 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+    }
+  };
 
   const scrollCatStrip = (direction) => {
     if (catStripRef.current) {
@@ -613,122 +635,53 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
         </div>
       </section>
 
-      {/* 8. "The Good Feedback" - Born Good Signature Testimonial Section */}
-      <section
-        style={{
-          paddingTop: 'clamp(48px, 7vw, 84px)',
-          paddingBottom: 'clamp(48px, 7vw, 84px)',
-          backgroundColor: '#FFFFFF',
-          borderTop: '1px solid #E8EEF5',
-        }}
-      >
+      {/* 8. "the good feedback" - Born Good Signature Carousel */}
+      <section className="reviews-section">
         <div className="container">
-          <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 48px' }}>
-            <span
-              style={{
-                fontSize: '0.8rem',
-                fontWeight: 700,
-                color: '#00B189',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-              }}
-            >
-              COMMUNITY LOVE & PROOF
-            </span>
-            <h2
-              style={{
-                fontSize: 'clamp(1.85rem, 3.8vw, 2.8rem)',
-                fontWeight: 800,
-                color: '#16195E',
-                letterSpacing: '-0.025em',
-                marginTop: '6px',
-                marginBottom: '12px',
-              }}
-            >
-              The Good Feedback
-            </h2>
-            <p style={{ fontSize: '1rem', color: '#64748B', margin: 0, lineHeight: 1.6 }}>
-              Real reviews from homemakers, hospital administrators, and banquet managers who count on
-              Clean Go every day.
-            </p>
-          </div>
+          <h2 className="reviews-title">
+            the good feedback
+          </h2>
 
-          {/* Testimonial Cards */}
+          {/* Horizontal Swipeable Track */}
           <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-              gap: '24px',
-            }}
+            ref={reviewsScrollRef}
+            onScroll={handleReviewScroll}
+            className="reviews-carousel-track"
           >
             {TESTIMONIALS.map((t) => (
-              <div
-                key={t.id}
-                style={{
-                  backgroundColor: '#FAF9F6',
-                  borderRadius: '20px',
-                  padding: '30px 24px',
-                  border: '1px solid #E8EEF5',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'space-between',
-                  boxShadow: '0 4px 14px rgba(15, 23, 42, 0.03)',
-                }}
-              >
-                <div>
-                  {/* Star Rating */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '3px', marginBottom: '14px' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} size={15} fill="#F59E0B" color="#F59E0B" strokeWidth={0} />
-                    ))}
-                  </div>
-
-                  {/* Review Text */}
-                  <p
-                    style={{
-                      fontSize: '0.94rem',
-                      color: '#334155',
-                      lineHeight: 1.65,
-                      marginBottom: '20px',
-                      fontStyle: 'italic',
-                    }}
-                  >
-                    "{t.text}"
-                  </p>
-                </div>
-
-                {/* Reviewer Details */}
-                <div
-                  style={{
-                    paddingTop: '14px',
-                    borderTop: '1px solid #E2E8F0',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
+              <div key={t.id} className="review-arched-card">
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="review-avatar-img"
+                  width="88"
+                  height="88"
+                  loading="lazy"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
                   }}
-                >
-                  <div>
-                    <div style={{ fontWeight: 800, color: '#16195E', fontSize: '0.95rem' }}>
-                      {t.name}
-                    </div>
-                    <div style={{ fontSize: '0.8rem', color: '#64748B', marginTop: '1px' }}>
-                      {t.role} • {t.location}
-                    </div>
-                  </div>
-                  <span
-                    style={{
-                      fontSize: '0.72rem',
-                      fontWeight: 700,
-                      backgroundColor: '#DCFCE7',
-                      color: '#15803D',
-                      padding: '3px 8px',
-                      borderRadius: '9999px',
-                    }}
-                  >
-                    Verified
-                  </span>
+                />
+                <div className="review-author-name">{t.name}</div>
+                <div className="review-stars-row">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={16} fill="#F59E0B" color="#F59E0B" strokeWidth={0} />
+                  ))}
                 </div>
+                <p className="review-quote-text">{t.text}</p>
               </div>
+            ))}
+          </div>
+
+          {/* Centered Pagination Dots */}
+          <div className="reviews-pagination-dots">
+            {TESTIMONIALS.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                onClick={() => scrollToReview(idx)}
+                className={`reviews-dot ${activeReviewIndex === idx ? 'active' : ''}`}
+                aria-label={`Go to review ${idx + 1}`}
+              />
             ))}
           </div>
         </div>

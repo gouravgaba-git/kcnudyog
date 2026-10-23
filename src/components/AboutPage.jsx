@@ -162,47 +162,49 @@ export default function AboutPage({ onExploreProducts, onOpenCatalogModal, onNav
             </div>
           </div>
 
-          {/* Right Column: Factory Conveyor Image with Yellow Angle Accent and Floating Vision/Mission Card */}
+          {/* Right Column: Clean Go Authentic Brand Showcase & Vision */}
           <div
             style={{
               position: 'relative',
               minHeight: '440px',
-              backgroundImage: 'url(/images/about-cleango-facility.webp)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
+              background: 'linear-gradient(145deg, #0F2444 0%, #16325C 100%)',
+              borderRadius: '20px',
               display: 'flex',
+              flexDirection: 'column',
               alignItems: 'center',
               justifyContent: 'center',
-              padding: 'clamp(24px, 4vw, 44px)',
+              padding: 'clamp(28px, 4vw, 44px)',
               overflow: 'hidden',
+              boxShadow: '0 12px 32px rgba(15, 36, 68, 0.15)',
             }}
           >
-            {/* Visual Angled Divider on Left Border of Right Column */}
-            <div
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                bottom: 0,
-                width: '42px',
-                background: 'linear-gradient(135deg, #FFBE1A 0%, #F59E0B 100%)',
-                clipPath: 'polygon(0 0, 100% 0, 0 100%)',
-                zIndex: 3,
-              }}
-            />
+            {/* Real Clean Go 5L Lineup Studio Pack */}
+            <div style={{ textAlign: 'center', marginBottom: '22px' }}>
+              <img
+                src="/images/hero-cans-only.png"
+                alt="Clean Go 5L Commercial Pack Lineup"
+                style={{
+                  maxHeight: '125px',
+                  maxWidth: '92%',
+                  objectFit: 'contain',
+                  filter: 'drop-shadow(0 10px 24px rgba(0,0,0,0.4))',
+                  display: 'inline-block',
+                }}
+              />
+            </div>
 
-            {/* Floating Dark Navy Vision/Mission Card */}
+            {/* Vision and Mission Card */}
             <div
               style={{
-                backgroundColor: '#0F2444',
+                backgroundColor: 'rgba(255, 255, 255, 0.07)',
                 borderRadius: '16px',
-                padding: 'clamp(22px, 3vw, 28px)',
-                maxWidth: '400px',
+                padding: 'clamp(20px, 3vw, 24px)',
+                maxWidth: '420px',
                 width: '100%',
-                boxShadow: '0 16px 36px rgba(15, 36, 68, 0.45)',
-                border: '1px solid rgba(255, 255, 255, 0.12)',
-                zIndex: 2,
+                border: '1px solid rgba(255, 255, 255, 0.14)',
+                backdropFilter: 'blur(8px)',
                 position: 'relative',
+                zIndex: 2,
               }}
             >
               {/* Item 1: Our Vision */}
