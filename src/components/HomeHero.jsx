@@ -356,16 +356,6 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                   className="borngood-card"
                   onClick={() => onSelectProduct(prod)}
                 >
-                  {/* Top Badges */}
-                  <div className="card-active-badge">
-                    <Sparkles size={11} color="#0284C7" />
-                    <span>{prod.activeBadge || 'Active Formula'}</span>
-                  </div>
-
-                  <div className="card-refill-badge">
-                    <span>5L Can</span>
-                  </div>
-
                   {/* Bottle Showcase Stage */}
                   <div className="borngood-card-stage">
                     <img src={prod.image} alt={prod.name} loading="lazy" />

@@ -777,15 +777,6 @@ export default function ProductDetailPage({
                 className="borngood-card"
                 onClick={() => onSelectProduct(relProd)}
               >
-                <div className="card-active-badge">
-                  <Sparkles size={11} color="#00B189" />
-                  <span>{relProd.activeBadge || 'Active Formula'}</span>
-                </div>
-
-                <div className="card-refill-badge">
-                  <span>5L Can</span>
-                </div>
-
                 <div className="borngood-card-stage">
                   <img src={relProd.image} alt={relProd.name} loading="lazy" />
                 </div>

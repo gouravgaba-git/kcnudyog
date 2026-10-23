@@ -128,16 +128,6 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
                 className="borngood-card"
                 onClick={() => onSelectProduct(prod)}
               >
-                {/* Active formulation badge */}
-                <div className="card-active-badge">
-                  <Sparkles size={11} color="#00B189" />
-                  <span>{prod.activeBadge || 'Active Formula'}</span>
-                </div>
-
-                <div className="card-refill-badge">
-                  <span>5L Can</span>
-                </div>
-
                 {/* Bottle Showcase Stage */}
                 <div className="borngood-card-stage">
                   <img src={prod.image} alt={prod.name} loading="lazy" />

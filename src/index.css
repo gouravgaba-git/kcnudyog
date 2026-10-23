@@ -584,36 +584,9 @@ textarea:focus {
   transform: scale(1.05);
 }
 
-.card-active-badge {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  background-color: #FFFFFF;
-  border: 1px solid #E2E8F0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-  border-radius: 9999px;
-  padding: 3px 9px;
-  font-size: 0.70rem;
-  font-weight: 700;
-  color: #0F766E;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  z-index: 3;
-}
-
+.card-active-badge,
 .card-refill-badge {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background-color: #EFF6FF;
-  border: 1px solid #BFDBFE;
-  border-radius: 9999px;
-  padding: 3px 9px;
-  font-size: 0.68rem;
-  font-weight: 700;
-  color: #1D4ED8;
-  z-index: 3;
+  display: none !important;
 }
 
 .borngood-card-body {
@@ -732,28 +705,6 @@ textarea:focus {
     max-width: 90% !important;
   }
 
-  .card-active-badge {
-    top: 6px !important;
-    left: 6px !important;
-    padding: 2px 6px !important;
-    font-size: 0.58rem !important;
-    gap: 2px !important;
-  }
-
-  .card-active-badge span {
-    max-width: 65px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .card-refill-badge {
-    top: 6px !important;
-    right: 6px !important;
-    padding: 2px 6px !important;
-    font-size: 0.58rem !important;
-  }
-
   .borngood-card-body {
     padding: 10px 9px 10px !important;
   }
@@ -785,48 +736,75 @@ textarea:focus {
     overflow: hidden !important;
   }
 
-  /* Hide long body text on 2-col cards, just like Born Good */
+  /* Keep short description cleanly clamped to 2 lines */
   .borngood-card-desc {
-    display: none !important;
+    font-size: 0.72rem !important;
+    line-height: 1.35 !important;
+    color: #64748B !important;
+    margin-bottom: 6px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
   }
 
+  /* Keep both pills visible on mobile */
   .borngood-card-pills {
-    margin-bottom: 8px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
     gap: 4px !important;
+    margin-bottom: 8px !important;
   }
 
-  .pill-scent {
-    font-size: 0.62rem !important;
+  .pill-scent,
+  .pill-safe {
+    font-size: 0.60rem !important;
     padding: 2px 6px !important;
-    white-space: nowrap;
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    border-radius: 9999px !important;
+    white-space: nowrap !important;
   }
 
   .pill-safe {
-    display: none !important; /* Keep compact on mobile */
+    display: inline-flex !important;
+    background-color: #E6F8F3 !important;
+    color: #00B189 !important;
   }
 
+  /* Dual Action buttons side-by-side on mobile */
   .borngood-card-actions {
-    grid-template-columns: 1fr !important;
-    gap: 0 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 6px !important;
     padding-top: 8px !important;
+    border-top: 1px solid #F1F5F9 !important;
   }
 
   .borngood-btn-specs {
-    display: none !important; /* Entire card is clickable to view specs! */
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 7px 4px !important;
+    font-size: 0.70rem !important;
+    font-weight: 700 !important;
+    border-radius: 8px !important;
+    border: 1px solid #CBD5E1 !important;
+    color: #16195E !important;
+    background-color: #FFFFFF !important;
+    white-space: nowrap !important;
   }
 
   .borngood-btn-order {
-    width: 100% !important;
-    padding: 8px 6px !important;
-    font-size: 0.74rem !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 7px 4px !important;
+    font-size: 0.70rem !important;
     font-weight: 700 !important;
     border-radius: 8px !important;
-    justify-content: center !important;
-    background-color: #00B189 !important; /* Born Good clean emerald green */
+    background-color: #00B189 !important;
     color: #FFFFFF !important;
+    white-space: nowrap !important;
+    gap: 3px !important;
   }
 }
 
