@@ -247,39 +247,63 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
             <div className="hero-products-showcase">
               <div className="hero-products-row">
                 <img
-                  src="/images/products-tight/cleango-toilet-cleaner.jpg"
+                  src="/images/products-tight/cleango-toilet-cleaner.webp"
                   alt="Clean Go Toilet Cleaner"
                   className="hero-product-bottle"
+                  width="387"
+                  height="600"
+                  fetchPriority="high"
+                  decoding="async"
                   onClick={onExploreProducts}
                 />
                 <img
-                  src="/images/products-tight/cleango-floor-cleaner.jpg"
+                  src="/images/products-tight/cleango-floor-cleaner.webp"
                   alt="Clean Go Floor Cleaner"
                   className="hero-product-bottle"
+                  width="415"
+                  height="600"
+                  fetchPriority="high"
+                  decoding="async"
                   onClick={onExploreProducts}
                 />
                 <img
-                  src="/images/products-tight/cleango-white-phenyle.jpg"
+                  src="/images/products-tight/cleango-white-phenyle.webp"
                   alt="Clean Go White Phenyle"
                   className="hero-product-bottle"
+                  width="343"
+                  height="600"
+                  fetchPriority="high"
+                  decoding="async"
                   onClick={onExploreProducts}
                 />
                 <img
-                  src="/images/products-tight/cleango-glass-cleaner.jpg"
+                  src="/images/products-tight/cleango-glass-cleaner.webp"
                   alt="Clean Go Glass Cleaner"
                   className="hero-product-bottle"
+                  width="376"
+                  height="600"
+                  fetchPriority="high"
+                  decoding="async"
                   onClick={onExploreProducts}
                 />
                 <img
-                  src="/images/products-tight/cleango-hand-wash.jpg"
+                  src="/images/products-tight/cleango-hand-wash.webp"
                   alt="Clean Go Hand Wash"
                   className="hero-product-bottle"
+                  width="390"
+                  height="600"
+                  fetchPriority="high"
+                  decoding="async"
                   onClick={onExploreProducts}
                 />
                 <img
-                  src="/images/products-tight/cleango-dishwash-liquid.jpg"
+                  src="/images/products-tight/cleango-dishwash-liquid.webp"
                   alt="Clean Go Dish Wash Liquid"
                   className="hero-product-bottle"
+                  width="385"
+                  height="600"
+                  fetchPriority="high"
+                  decoding="async"
                   onClick={onExploreProducts}
                 />
               </div>
@@ -358,7 +382,14 @@ export default function HomeHero({ onExploreProducts, onOpenCatalogModal, onSele
                 >
                   {/* Bottle Showcase Stage */}
                   <div className="borngood-card-stage">
-                    <img src={prod.image} alt={prod.name} loading="lazy" />
+                    <img
+                      src={prod.image}
+                      alt={prod.name}
+                      loading="lazy"
+                      decoding="async"
+                      width="525"
+                      height="700"
+                    />
                   </div>
 
                   {/* Card Content */}

@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import MobileActionDock from './components/MobileActionDock';
-import CatalogModal from './components/CatalogModal';
-
-// Dedicated Sub-Pages
 import HomeHero from './components/HomeHero';
-import ProductsPage from './components/ProductsPage';
-import ProductDetailPage from './components/ProductDetailPage';
-import WhyUsPage from './components/WhyUsPage';
-import AboutPage from './components/AboutPage';
-import ContactPage from './components/ContactPage';
+
+// Code-split secondary sub-pages for lightning-fast initial landing on new devices
+const ProductsPage = lazy(() => import('./components/ProductsPage'));
+const ProductDetailPage = lazy(() => import('./components/ProductDetailPage'));
+const WhyUsPage = lazy(() => import('./components/WhyUsPage'));
+const AboutPage = lazy(() => import('./components/AboutPage'));
+const ContactPage = lazy(() => import('./components/ContactPage'));
+const CatalogModal = lazy(() => import('./components/CatalogModal'));
 
 import { PRODUCTS } from './data/productsData';
 
@@ -107,48 +107,78 @@ export default function App() {
       />
 
       {/* Main Routed Content - Dedicated Page per Route */}
+      {/* Main Routed Content - Dedicated Page per Route */}
       <main style={{ flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-        {currentPage === 'home' && (
+        {currentPage === 'home' ? (
           <HomeHero
             onExploreProducts={() => navigate('products')}
             onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
             onSelectProduct={handleSelectProduct}
             onNavigate={navigate}
           />
-        )}
+        ) : (
+          <Suspense
+            fallback={
+              <div
+                style={{
+                  minHeight: '60vh',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexDirection: 'column',
+                  gap: '12px',
+                }}
+              >
+                <div
+                  style={{
+                    width: '36px',
+                    height: '36px',
+                    border: '3px solid #E2E8F0',
+                    borderTopColor: '#00B189',
+                    borderRadius: '50%',
+                    animation: 'spin 0.7s linear infinite',
+                  }}
+                />
+                <span style={{ fontSize: '0.85rem', color: '#64748B', fontWeight: 600 }}>
+                  Loading Clean Go formulations...
+                </span>
+              </div>
+            }
+          >
+            {currentPage === 'products' && (
+              <ProductsPage
+                onSelectProduct={handleSelectProduct}
+                onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+              />
+            )}
 
-        {currentPage === 'products' && (
-          <ProductsPage
-            onSelectProduct={handleSelectProduct}
-            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-          />
-        )}
+            {currentPage === 'product-detail' && (
+              <ProductDetailPage
+                product={selectedProduct}
+                onNavigate={navigate}
+                onSelectProduct={handleSelectProduct}
+                onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+              />
+            )}
 
-        {currentPage === 'product-detail' && (
-          <ProductDetailPage
-            product={selectedProduct}
-            onNavigate={navigate}
-            onSelectProduct={handleSelectProduct}
-            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-          />
-        )}
+            {currentPage === 'why-us' && (
+              <WhyUsPage
+                onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+                onNavigateToContact={() => navigate('contact')}
+              />
+            )}
 
-        {currentPage === 'why-us' && (
-          <WhyUsPage
-            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-            onNavigateToContact={() => navigate('contact')}
-          />
-        )}
+            {currentPage === 'about' && (
+              <AboutPage
+                onExploreProducts={() => navigate('products')}
+                onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
+                onNavigateToContact={() => navigate('contact')}
+              />
+            )}
 
-        {currentPage === 'about' && (
-          <AboutPage
-            onExploreProducts={() => navigate('products')}
-            onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
-            onNavigateToContact={() => navigate('contact')}
-          />
+            {currentPage === 'contact' && <ContactPage />}
+          </Suspense>
         )}
-
-        {currentPage === 'contact' && <ContactPage />}
       </main>
 
       {/* Global Footer */}
@@ -165,11 +195,15 @@ export default function App() {
         onOpenCatalogModal={() => setIsCatalogModalOpen(true)}
       />
 
-      {/* Price List & Catalogue Lead Modal */}
-      <CatalogModal
-        isOpen={isCatalogModalOpen}
-        onClose={() => setIsCatalogModalOpen(false)}
-      />
+      {/* Price List & Catalogue Lead Modal (Lazy loaded when opened) */}
+      {isCatalogModalOpen && (
+        <Suspense fallback={null}>
+          <CatalogModal
+            isOpen={isCatalogModalOpen}
+            onClose={() => setIsCatalogModalOpen(false)}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

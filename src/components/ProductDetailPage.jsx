@@ -239,6 +239,8 @@ export default function ProductDetailPage({
                       <img
                         src={activeProduct.image}
                         alt={thumb.label}
+                        loading="lazy"
+                        decoding="async"
                         style={{
                           width: '100%',
                           height: '100%',
@@ -273,6 +275,8 @@ export default function ProductDetailPage({
                 <img
                   src={activeProduct.image}
                   alt={activeProduct.name}
+                  fetchPriority="high"
+                  decoding="async"
                   style={{
                     maxHeight: 'clamp(300px, 34vw, 420px)',
                     maxWidth: '100%',
@@ -778,7 +782,14 @@ export default function ProductDetailPage({
                 onClick={() => onSelectProduct(relProd)}
               >
                 <div className="borngood-card-stage">
-                  <img src={relProd.image} alt={relProd.name} loading="lazy" />
+                  <img
+                    src={relProd.image}
+                    alt={relProd.name}
+                    loading="lazy"
+                    decoding="async"
+                    width="525"
+                    height="700"
+                  />
                 </div>
 
                 <div className="borngood-card-body" style={{ textAlign: 'center' }}>

@@ -97,6 +97,8 @@ export default function CategoryGrid({ onSelectProduct, onNavigateToProducts }) 
                   <img
                     src={prod.image}
                     alt={prod.name}
+                    loading="lazy"
+                    decoding="async"
                     style={{
                       maxHeight: '200px',
                       maxWidth: '100%',

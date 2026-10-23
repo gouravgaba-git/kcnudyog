@@ -178,6 +178,8 @@ export default function ProductDetailModal({ product, isOpen, onClose }) {
               <img
                 src={product.image}
                 alt={product.name}
+                loading="lazy"
+                decoding="async"
                 style={{
                   maxHeight: '300px',
                   maxWidth: '100%',

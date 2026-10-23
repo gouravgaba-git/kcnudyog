@@ -130,7 +130,14 @@ export default function ProductsPage({ onSelectProduct, onOpenCatalogModal }) {
               >
                 {/* Bottle Showcase Stage */}
                 <div className="borngood-card-stage">
-                  <img src={prod.image} alt={prod.name} loading="lazy" />
+                  <img
+                    src={prod.image}
+                    alt={prod.name}
+                    loading="lazy"
+                    decoding="async"
+                    width="525"
+                    height="700"
+                  />
                 </div>
 
                 {/* Card Content Details */}
